@@ -24,7 +24,6 @@ CREATE TABLE `tb_ad_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
   `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '广告名称',
   `showid` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '广告id，生成的唯一一个区分广告位id',
-  `typeid` int(11) DEFAULT NULL COMMENT '广告类型，1-banner，2-inst，3-fullscree，由外部的广告类型表值决定',
   PRIMARY KEY (`showid`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -58,7 +57,7 @@ DROP TABLE IF EXISTS `tb_app_info`;
 CREATE TABLE `tb_app_info` (
   `id` int(11) DEFAULT NULL COMMENT '自增id',
   `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '名称',
-  `showid` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '媒体对外展示id',
+  `showid` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '媒体对外展示id',
   `ostypeid` int(11) DEFAULT NULL COMMENT '外键ostype，android，ios，wphone，webapi',
   `categoryid` int(11) DEFAULT NULL COMMENT '外键分类，教育阅读，运动体育',
   `pkgn` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '包名称',
@@ -67,7 +66,8 @@ CREATE TABLE `tb_app_info` (
   `status` int(11) DEFAULT NULL COMMENT '审核状态，审核通过,审核不通过',
   `checkinfo` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '审核意见',
   `createtime` int(11) DEFAULT NULL COMMENT '创建时间',
-  `checktime` int(11) DEFAULT NULL COMMENT '审核时间'
+  `checktime` int(11) DEFAULT NULL COMMENT '审核时间',
+  PRIMARY KEY (`showid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `tb_app_os` */
