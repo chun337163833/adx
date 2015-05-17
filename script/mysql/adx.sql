@@ -81,6 +81,56 @@ CREATE TABLE `tb_app_os` (
   UNIQUE KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+/*Table structure for table `tb_biz_ad_showtype` */
+
+DROP TABLE IF EXISTS `tb_biz_ad_showtype`;
+
+CREATE TABLE `tb_biz_ad_showtype` (
+  `id` int(11) NOT NULL COMMENT '自增id',
+  `adid` int(11) NOT NULL COMMENT '广告位',
+  `showtypeid` int(11) NOT NULL COMMENT '展示类型，banner，全插屏，积分墙',
+  `status` int(11) DEFAULT NULL COMMENT '伪删除',
+  PRIMARY KEY (`id`,`adid`,`showtypeid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Table structure for table `tb_biz_app_ad` */
+
+DROP TABLE IF EXISTS `tb_biz_app_ad`;
+
+CREATE TABLE `tb_biz_app_ad` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
+  `appid` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '媒体id',
+  `adid` int(11) NOT NULL COMMENT '广告位id',
+  `status` int(11) DEFAULT NULL COMMENT '状态，伪删除',
+  PRIMARY KEY (`id`,`appid`,`adid`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Table structure for table `tb_biz_user_app` */
+
+DROP TABLE IF EXISTS `tb_biz_user_app`;
+
+CREATE TABLE `tb_biz_user_app` (
+  `id` int(11) NOT NULL COMMENT '自增id',
+  `userid` int(11) NOT NULL COMMENT '用户id',
+  `appid` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '媒体id',
+  `status` int(11) DEFAULT NULL COMMENT '状态，伪删除',
+  PRIMARY KEY (`id`,`userid`,`appid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Table structure for table `tb_biz_user_bank` */
+
+DROP TABLE IF EXISTS `tb_biz_user_bank`;
+
+CREATE TABLE `tb_biz_user_bank` (
+  `id` int(11) NOT NULL COMMENT '自增id',
+  `userid` int(11) NOT NULL COMMENT '用户id',
+  `paymentway` int(11) NOT NULL COMMENT '支付方式',
+  `paymentid` int(11) NOT NULL COMMENT '支付账号，关联对应的id',
+  `status` int(11) DEFAULT NULL COMMENT '状态，伪删除',
+  PRIMARY KEY (`id`,`userid`,`paymentway`,`paymentid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 /*Table structure for table `tb_paymentplatform` */
 
 DROP TABLE IF EXISTS `tb_paymentplatform`;
