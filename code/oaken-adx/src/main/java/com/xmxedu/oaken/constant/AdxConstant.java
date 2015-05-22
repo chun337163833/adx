@@ -1,5 +1,5 @@
-package com.xmxedu.oakenshield.constant;
+package com.xmxedu.oaken.constant;
 
-public interface OakenShieldAdxConstant {
+public interface AdxConstant {
 
 }
