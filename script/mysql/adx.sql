@@ -28,6 +28,8 @@ CREATE TABLE `tb_ad_info` (
   UNIQUE KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+/*Data for the table `tb_ad_info` */
+
 /*Table structure for table `tb_ad_type` */
 
 DROP TABLE IF EXISTS `tb_ad_type`;
@@ -39,6 +41,8 @@ CREATE TABLE `tb_ad_type` (
   UNIQUE KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+/*Data for the table `tb_ad_type` */
+
 /*Table structure for table `tb_app_category` */
 
 DROP TABLE IF EXISTS `tb_app_category`;
@@ -49,6 +53,26 @@ CREATE TABLE `tb_app_category` (
   PRIMARY KEY (`id`,`name`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `tb_app_category` */
+
+/*Table structure for table `tb_app_in_otherplatform` */
+
+DROP TABLE IF EXISTS `tb_app_in_otherplatform`;
+
+CREATE TABLE `tb_app_in_otherplatform` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `appname` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `platformid` int(11) NOT NULL,
+  `appid` int(11) NOT NULL,
+  `adid` int(11) NOT NULL,
+  `showtype` int(11) DEFAULT NULL,
+  `incometype` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`,`platformid`,`appid`,`adid`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `tb_app_in_otherplatform` */
 
 /*Table structure for table `tb_app_info` */
 
@@ -70,6 +94,8 @@ CREATE TABLE `tb_app_info` (
   PRIMARY KEY (`showid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+/*Data for the table `tb_app_info` */
+
 /*Table structure for table `tb_app_os` */
 
 DROP TABLE IF EXISTS `tb_app_os`;
@@ -80,6 +106,8 @@ CREATE TABLE `tb_app_os` (
   PRIMARY KEY (`id`,`type`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `tb_app_os` */
 
 /*Table structure for table `tb_biz_ad_showtype` */
 
@@ -92,6 +120,8 @@ CREATE TABLE `tb_biz_ad_showtype` (
   `status` int(11) DEFAULT NULL COMMENT '伪删除',
   PRIMARY KEY (`id`,`adid`,`showtypeid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `tb_biz_ad_showtype` */
 
 /*Table structure for table `tb_biz_app_ad` */
 
@@ -106,6 +136,35 @@ CREATE TABLE `tb_biz_app_ad` (
   UNIQUE KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+/*Data for the table `tb_biz_app_ad` */
+
+/*Table structure for table `tb_biz_app_category` */
+
+DROP TABLE IF EXISTS `tb_biz_app_category`;
+
+CREATE TABLE `tb_biz_app_category` (
+  `id` int(11) NOT NULL,
+  `appid` int(11) NOT NULL,
+  `categoryid` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`,`appid`,`categoryid`,`status`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `tb_biz_app_category` */
+
+/*Table structure for table `tb_biz_app_relationship` */
+
+DROP TABLE IF EXISTS `tb_biz_app_relationship`;
+
+CREATE TABLE `tb_biz_app_relationship` (
+  `id` int(11) DEFAULT NULL,
+  `ourad` int(11) DEFAULT NULL,
+  `otherplatformad` int(11) DEFAULT NULL,
+  `requestweight` double DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `tb_biz_app_relationship` */
+
 /*Table structure for table `tb_biz_user_app` */
 
 DROP TABLE IF EXISTS `tb_biz_user_app`;
@@ -117,6 +176,8 @@ CREATE TABLE `tb_biz_user_app` (
   `status` int(11) DEFAULT NULL COMMENT '状态，伪删除',
   PRIMARY KEY (`id`,`userid`,`appid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `tb_biz_user_app` */
 
 /*Table structure for table `tb_biz_user_bank` */
 
@@ -131,6 +192,26 @@ CREATE TABLE `tb_biz_user_bank` (
   PRIMARY KEY (`id`,`userid`,`paymentway`,`paymentid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+/*Data for the table `tb_biz_user_bank` */
+
+/*Table structure for table `tb_otherplatform` */
+
+DROP TABLE IF EXISTS `tb_otherplatform`;
+
+CREATE TABLE `tb_otherplatform` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` int(11) NOT NULL,
+  `requesttype` int(11) NOT NULL,
+  `platformtype` int(11) NOT NULL,
+  `requesturl` int(11) NOT NULL,
+  `key` int(11) DEFAULT NULL,
+  `token` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`,`name`,`requesttype`,`platformtype`,`requesturl`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `tb_otherplatform` */
+
 /*Table structure for table `tb_paymentplatform` */
 
 DROP TABLE IF EXISTS `tb_paymentplatform`;
@@ -141,6 +222,8 @@ CREATE TABLE `tb_paymentplatform` (
   PRIMARY KEY (`id`,`paymentplatformname`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `tb_paymentplatform` */
 
 /*Table structure for table `tb_user` */
 
@@ -159,6 +242,8 @@ CREATE TABLE `tb_user` (
   `regisgertime` int(11) DEFAULT NULL COMMENT '注册时间',
   PRIMARY KEY (`realname`,`identityaccount`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `tb_user` */
 
 /*Table structure for table `tb_user_ad_statistic` */
 
@@ -180,6 +265,8 @@ CREATE TABLE `tb_user_ad_statistic` (
   PRIMARY KEY (`id`,`appid`,`adid`,`time`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+/*Data for the table `tb_user_ad_statistic` */
+
 /*Table structure for table `tb_user_bank` */
 
 DROP TABLE IF EXISTS `tb_user_bank`;
@@ -193,6 +280,8 @@ CREATE TABLE `tb_user_bank` (
   UNIQUE KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+/*Data for the table `tb_user_bank` */
+
 /*Table structure for table `tb_user_paymentplatform` */
 
 DROP TABLE IF EXISTS `tb_user_paymentplatform`;
@@ -204,6 +293,8 @@ CREATE TABLE `tb_user_paymentplatform` (
   PRIMARY KEY (`paymentplatformid`,`paymentplatformaccount`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `tb_user_paymentplatform` */
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
