@@ -1,0 +1,17 @@
+该工具使用jenny生成对数据库的操作模型类，便于开发
+
+jenny.zip contains two jar files:
+
+    jenny-dev.jar
+    jenny-prod.jar
+
+You will need to refer to both jar files in your classpath as you develop your
+application and run Jenny.  But only jenny-prod.jar should be included with your
+production code.
+
+More information about Jenny can be found at http://www.javaranch.com/jenny
+
+
+注意在cmd 下运行，如果connection refuse，设置mysql 中的my.cnf为0.0.0.0
+  java com.javaranch.jenny.dev.Jenny  db.properties 
+

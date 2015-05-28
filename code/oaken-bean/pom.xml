@@ -13,4 +13,11 @@
 	<groupId>com.xmxedu.oaken</groupId>
 	<artifactId>oaken-bean</artifactId>
 	<name>Oaken Bean</name>
+	<dependencies>
+		<dependency>
+			<groupId>com.javaranch.jenny</groupId>
+			<artifactId>jenny-prod</artifactId>
+			<version>1.0</version>
+		</dependency>
+	</dependencies>
 </project>	
