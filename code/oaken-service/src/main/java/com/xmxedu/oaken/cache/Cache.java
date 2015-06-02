@@ -11,7 +11,7 @@ import com.xmxedu.oaken.model.AdBasicData;
 public abstract class Cache {
   protected abstract AdBasicData getAdDataByAdid(String adid);
 
-  protected abstract void setAdDataByAdid(String adid, AdBasicData value);
+  protected abstract void putAdDataByAdid(String adid, AdBasicData value);
 
   protected abstract void initCache();
 

@@ -20,7 +20,7 @@ public class RedisCache extends Cache {
   }
 
   @Override
-  protected void setAdDataByAdid(String adid, AdBasicData value) {
+  protected void putAdDataByAdid(String adid, AdBasicData value) {
 
   }
 
