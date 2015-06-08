@@ -27,6 +27,7 @@ public class LocalCache extends Cache {
     if (data.containsKey(adid)) {
       return data.get(adid);
     }
+    logger.warn("Cannot get ad Data by adid of {} in {} .", adid, LocalCache.name);
     return null;
   }
 

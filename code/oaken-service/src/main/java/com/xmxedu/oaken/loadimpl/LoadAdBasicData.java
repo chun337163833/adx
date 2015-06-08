@@ -1,5 +1,10 @@
 package com.xmxedu.oaken.loadimpl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.xmxedu.oaken.cache.Cache;
+import com.xmxedu.oaken.cache.LocalCache;
 import com.xmxedu.oaken.load.ILoadService;
 
 /**
@@ -9,9 +14,11 @@ import com.xmxedu.oaken.load.ILoadService;
  * @version 1.0.1
  */
 public class LoadAdBasicData implements ILoadService {
-
+  
+  private final static Logger logger = LoggerFactory.getLogger(LoadAdBasicData.class);
+  private static Cache cache = new LocalCache();
   @Override
   public void loadDataAtFixedTime() {
-
+    
   }
 }
