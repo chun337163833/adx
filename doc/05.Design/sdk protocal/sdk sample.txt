@@ -1,2 +1,8 @@
+request:
 {"adid":"5E71ADD14A6BB7C977066CCBE57F3CDA","sdk_info":{"version":"oaken_1.0.1"},"device_info":{"type":"0","os":"1","os_version":"4.1","android_id":"9774D56D682E549C","imei":"354710053595659","mac":"00:08:22:d2:f6:7c","density":"0.75","operator":"1","net":"1","longitude":"118.62863","latitude":"32.060207","screen_width":"1024","screen_height":"768","user_agent":"Mozilla/5.0 (Linux; U; Android 4.2.2; zh-cn; OKA51 Build/JDQ39 AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"},"app_info":{"name":"乌龙院","id":"5559e25e","package_name":"com.xmxedu.oaken"}
 }
+
+reponse:
+{
+"ad_type":"redirect/download/installation/dail",
+"ad_material":"加密后的广告html物料","track":{"impress":[],"click":[],"install":[{"download_start":"http://www.baidu.com/download_start","download_end":"http://www.baidu.com/download_end","install_success":"http://www.baidu.com/install_success"},{"download_start":"http://www.baidu.com/download_start","download_end":"http://www.baidu.com/download_end","install_success":"http://www.baidu.com/install_success"}]}}

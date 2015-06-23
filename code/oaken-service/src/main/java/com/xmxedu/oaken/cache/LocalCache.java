@@ -1,6 +1,7 @@
 package com.xmxedu.oaken.cache;
 
 import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicReference;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +23,14 @@ public class LocalCache extends Cache {
 
   private HashMap<String, AdBasicData> data = Maps.newHashMap();
 
+  private AtomicReference<HashMap<String, AdBasicData>> atomicReference =
+      new AtomicReference<HashMap<String, AdBasicData>>(null);
+
+  public void setAdBasicData(HashMap<String, AdBasicData> data) {
+    atomicReference.set(data);
+    this.data = atomicReference.getAndSet(data);
+  }
+
   @Override
   protected AdBasicData getAdDataByAdid(String adid) {
     if (data.containsKey(adid)) {
@@ -33,14 +42,29 @@ public class LocalCache extends Cache {
 
   @Override
   protected void putAdDataByAdid(String adid, AdBasicData value) {
-    if (Strings.isNullOrEmpty(adid)) {}
-    if (null == value) {}
+    if (Strings.isNullOrEmpty(adid)) {
+      logger.warn("The parameters of adid is null!");
+      return;
+    }
+    if (null == value) {
+      logger.warn("Cannot set a key with nullable value in {}", LocalCache.name);
+      return;
+    }
     data.put(adid, value);
   }
 
   @Override
   protected void initCache() {
     logger.info("Cache name is {}", name);
+    if (this.data.isEmpty()) {
+      logger.warn("{} u must collect the data and inovke its fuction of 'setAdBasicData' first",
+          LocalCache.class.getCanonicalName());
+      return;
+    } else {
+      logger.info("{} initialize the Cache correctlly, and its size is {}",
+          LocalCache.class.getCanonicalName(), this.data.size());
+    }
+
   }
 
   @Override
