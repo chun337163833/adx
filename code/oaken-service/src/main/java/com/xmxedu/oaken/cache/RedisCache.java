@@ -1,5 +1,7 @@
 package com.xmxedu.oaken.cache;
 
+import java.util.HashMap;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,22 +17,33 @@ public class RedisCache extends Cache {
   private final static Logger logger = LoggerFactory.getLogger(RedisCache.class);
 
   @Override
-  protected AdBasicData getAdDataByAdid(String adid) {
+  public AdBasicData getAdDataByAdid(String adid) {
     return null;
   }
 
   @Override
-  protected void putAdDataByAdid(String adid, AdBasicData value) {
+  public void putAdDataByAdid(String adid, AdBasicData value) {
 
   }
 
   @Override
-  protected void initCache() {
+  public void initCache() {
     
   }
 
   @Override
-  protected void disconnectCache() {
+  public void disconnectCache() {
 
+  }
+
+  @Override
+  public String getCacheName() {
+    return "Redis Cache";
+  }
+
+  @Override
+  public void setAdBasicData(HashMap<String, AdBasicData> data) {
+    // TODO Auto-generated method stub
+    
   }
 }

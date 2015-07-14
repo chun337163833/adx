@@ -1,5 +1,7 @@
 package com.xmxedu.oaken.cache;
 
+import java.util.HashMap;
+
 import com.xmxedu.oaken.model.AdBasicData;
 
 /**
@@ -9,11 +11,14 @@ import com.xmxedu.oaken.model.AdBasicData;
  * @version 1.0.1
  */
 public abstract class Cache {
-  protected abstract AdBasicData getAdDataByAdid(String adid);
+  public abstract void setAdBasicData(HashMap<String, AdBasicData> data);
+  public abstract AdBasicData getAdDataByAdid(String adid);
 
-  protected abstract void putAdDataByAdid(String adid, AdBasicData value);
+  public abstract void putAdDataByAdid(String adid, AdBasicData value);
 
-  protected abstract void initCache();
+  public abstract void initCache();
 
-  protected abstract void disconnectCache();
+  public abstract void disconnectCache();
+  
+  public abstract String getCacheName();
 }

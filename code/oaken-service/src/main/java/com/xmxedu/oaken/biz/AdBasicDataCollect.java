@@ -32,7 +32,7 @@ import com.xmxedu.oaken.sql.TbUserTable;
 public class AdBasicDataCollect {
   private final static Logger logger = LoggerFactory.getLogger(AdBasicDataCollect.class);
 
-  public AdBasicData generate(TbAdInfoTable.Row row) {
+  public static AdBasicData generate(TbAdInfoTable.Row row) {
     if (null == row) {
       return null;
     }
@@ -58,7 +58,7 @@ public class AdBasicDataCollect {
   }
   
 
-  private TbAdTypeTable.Row getAdType(int adSlotId) {
+  private static TbAdTypeTable.Row getAdType(int adSlotId) {
     if (adSlotId < 1) {
       return null;
     }
@@ -90,7 +90,7 @@ public class AdBasicDataCollect {
     return row;
   }
 
-  private AppInfo getAppInfo(int adSlotId) {
+  private static AppInfo getAppInfo(int adSlotId) {
     if (adSlotId < 1) {
       return null;
     }
@@ -131,7 +131,7 @@ public class AdBasicDataCollect {
     return appInfo;
   }
 
-  private TbAppCategoryTable.Row getAppCategory(int appId) {
+  private static TbAppCategoryTable.Row getAppCategory(int appId) {
     if (appId < 0) {
       return null;
     }
@@ -155,7 +155,7 @@ public class AdBasicDataCollect {
     return row;
   }
 
-  private TbUserTable.Row getUserInfo(int appId) {
+  private static TbUserTable.Row getUserInfo(int appId) {
     if (appId < 0) {
       return null;
     }
@@ -175,7 +175,7 @@ public class AdBasicDataCollect {
     return user;
   }
 
-  private AppRegisterInfo getAppRegister(int adSlotId) {
+  private static AppRegisterInfo getAppRegister(int adSlotId) {
     if (adSlotId < 0) {
       return null;
     }

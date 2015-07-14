@@ -26,13 +26,14 @@ public class LocalCache extends Cache {
   private AtomicReference<HashMap<String, AdBasicData>> atomicReference =
       new AtomicReference<HashMap<String, AdBasicData>>(null);
 
+  @Override
   public void setAdBasicData(HashMap<String, AdBasicData> data) {
     atomicReference.set(data);
     this.data = atomicReference.getAndSet(data);
   }
 
   @Override
-  protected AdBasicData getAdDataByAdid(String adid) {
+  public AdBasicData getAdDataByAdid(String adid) {
     if (data.containsKey(adid)) {
       return data.get(adid);
     }
@@ -41,7 +42,7 @@ public class LocalCache extends Cache {
   }
 
   @Override
-  protected void putAdDataByAdid(String adid, AdBasicData value) {
+  public void putAdDataByAdid(String adid, AdBasicData value) {
     if (Strings.isNullOrEmpty(adid)) {
       logger.warn("The parameters of adid is null!");
       return;
@@ -54,7 +55,7 @@ public class LocalCache extends Cache {
   }
 
   @Override
-  protected void initCache() {
+  public void initCache() {
     logger.info("Cache name is {}", name);
     if (this.data.isEmpty()) {
       logger.warn("{} u must collect the data and inovke its fuction of 'setAdBasicData' first",
@@ -68,8 +69,13 @@ public class LocalCache extends Cache {
   }
 
   @Override
-  protected void disconnectCache() {
+  public void disconnectCache() {
 
+  }
+
+  @Override
+  public String getCacheName() {
+    return name;
   }
 
 }
