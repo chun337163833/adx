@@ -38,6 +38,9 @@ public class AdBasicDataCollect {
     }
 
     AdBasicData data = new AdBasicData();
+    
+    // set ad info
+    data.setAdInfo(row);
 
     // get showtype by adSlotId
     TbAdTypeTable.Row adType = getAdType(row.getID());
@@ -48,9 +51,12 @@ public class AdBasicDataCollect {
     data.setAppInfo(appInfo);
 
     // get app register info by adSlotId
-
+    AppRegisterInfo appRegister = getAppRegister(row.getID());
+    data.setRegisterInfo(appRegister);
+    
     return data;
   }
+  
 
   private TbAdTypeTable.Row getAdType(int adSlotId) {
     if (adSlotId < 1) {
