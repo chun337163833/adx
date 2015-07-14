@@ -14,10 +14,15 @@
 	<artifactId>oaken-service</artifactId>
 	<name>Oaken Service</name>
 	<dependencies>
-	    		<dependency>
+		<dependency>
 			<groupId>com.xmxedu.oaken</groupId>
 			<artifactId>oaken-bean</artifactId>
 			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.34</version>
 		</dependency>
 	</dependencies>
 </project>	

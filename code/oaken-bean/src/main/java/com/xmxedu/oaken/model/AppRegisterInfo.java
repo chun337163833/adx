@@ -1,6 +1,7 @@
 package com.xmxedu.oaken.model;
 
 import com.xmxedu.oaken.sql.TbAppInThirdpartyTable;
+import com.xmxedu.oaken.sql.TbBizAppRelationshipTable;
 import com.xmxedu.oaken.sql.TbThirdpartyTable;
 
 /**
@@ -12,6 +13,7 @@ import com.xmxedu.oaken.sql.TbThirdpartyTable;
 public class AppRegisterInfo {
   private TbAppInThirdpartyTable.Row appRegister = null;
   private TbThirdpartyTable.Row thirdParty = null;
+  private TbBizAppRelationshipTable.Row appMap = null;
 
   public TbAppInThirdpartyTable.Row getAppRegister() {
     return appRegister;
@@ -27,5 +29,13 @@ public class AppRegisterInfo {
 
   public void setThirdParty(TbThirdpartyTable.Row thirdParty) {
     this.thirdParty = thirdParty;
+  }
+
+  public TbBizAppRelationshipTable.Row getAppMap() {
+    return appMap;
+  }
+
+  public void setAppMap(TbBizAppRelationshipTable.Row appMap) {
+    this.appMap = appMap;
   }
 }

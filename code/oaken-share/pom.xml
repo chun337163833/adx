@@ -13,4 +13,7 @@
 	<groupId>com.xmxedu.oaken</groupId>
 	<artifactId>oaken-share</artifactId>
 	<name>Oaken Share</name>
+	<dependencies>
+
+	</dependencies>
 </project>	
