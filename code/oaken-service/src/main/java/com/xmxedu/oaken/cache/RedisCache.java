@@ -4,16 +4,19 @@ import java.util.HashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import com.xmxedu.oaken.model.AdBasicData;
 
 /**
  * Redis 来做分布式缓存，调用的时候必须初始化
+ * 
  * @author xmzheng
  * @version 1.0.1
  */
+@Service("redisCache")
 public class RedisCache extends Cache {
-  
+
   private final static Logger logger = LoggerFactory.getLogger(RedisCache.class);
 
   @Override
@@ -28,7 +31,7 @@ public class RedisCache extends Cache {
 
   @Override
   public void initCache() {
-    
+
   }
 
   @Override
@@ -44,6 +47,6 @@ public class RedisCache extends Cache {
   @Override
   public void setAdBasicData(HashMap<String, AdBasicData> data) {
     // TODO Auto-generated method stub
-    
+
   }
 }

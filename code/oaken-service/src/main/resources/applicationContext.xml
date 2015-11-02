@@ -20,4 +20,5 @@
 			expression="org.springframework.stereotype.Repository" />
 	</context:component-scan>
 	<task:annotation-driven />
+	<context:component-scan base-package="com.xmxedu.oaken"></context:component-scan>
 </beans>

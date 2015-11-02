@@ -5,6 +5,10 @@ import java.util.HashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
 
 import com.google.common.collect.Maps;
 import com.xmxedu.oaken.biz.AdBasicDataCollect;
@@ -20,11 +24,17 @@ import com.xmxedu.oaken.sql.TbAdInfoTable;
  * @author xmzheng
  * @version 1.0.1
  */
-public class LoadAdBasicData implements ILoadService {
+@Service("loadLocalCacheData")
+public class LoadLocalCacheData implements ILoadService {
 
-  private final static Logger logger = LoggerFactory.getLogger(LoadAdBasicData.class);
-  private static Cache cache = new LocalCache();
+  private final static Logger logger = LoggerFactory.getLogger(LoadLocalCacheData.class);
+  
+  @Autowired
+  @Qualifier("localCache")
+  private Cache cache;
 
+  @Scheduled(cron = "0/5 * * * * ?")
+  // 间隔5秒执行一次
   @Override
   public void loadDataAtFixedTime() {
     // some business to collect the ad basic data according by ad unit id
