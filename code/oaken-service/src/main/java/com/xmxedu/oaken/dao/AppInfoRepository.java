@@ -5,5 +5,5 @@ package com.xmxedu.oaken.dao;
  * @version 1.0.0
  */
 public interface AppInfoRepository {
-
+    public String getAppName();
 }
