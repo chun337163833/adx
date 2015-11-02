@@ -16,23 +16,22 @@ import com.xmxedu.oaken.model.AdBasicData;
  * @author xmzheng
  * @version 1.0.1
  */
-public class LocalCache extends Cache {
+public class LocalCache implements Cache {
 
   private final static Logger logger = LoggerFactory.getLogger(LocalCache.class);
   private final static String name = "local cache";
 
   private HashMap<String, AdBasicData> data = Maps.newHashMap();
 
+
   private AtomicReference<HashMap<String, AdBasicData>> atomicReference =
       new AtomicReference<HashMap<String, AdBasicData>>(null);
 
-  @Override
   public void setAdBasicData(HashMap<String, AdBasicData> data) {
     atomicReference.set(data);
     this.data = atomicReference.getAndSet(data);
   }
 
-  @Override
   public AdBasicData getAdDataByAdid(String adid) {
     if (data.containsKey(adid)) {
       return data.get(adid);
@@ -41,7 +40,6 @@ public class LocalCache extends Cache {
     return null;
   }
 
-  @Override
   public void putAdDataByAdid(String adid, AdBasicData value) {
     if (Strings.isNullOrEmpty(adid)) {
       logger.warn("The parameters of adid is null!");
@@ -54,7 +52,6 @@ public class LocalCache extends Cache {
     data.put(adid, value);
   }
 
-  @Override
   public void initCache() {
     logger.info("Cache name is {}", name);
     if (this.data.isEmpty()) {
@@ -68,12 +65,10 @@ public class LocalCache extends Cache {
 
   }
 
-  @Override
   public void disconnectCache() {
 
   }
 
-  @Override
   public String getCacheName() {
     return name;
   }

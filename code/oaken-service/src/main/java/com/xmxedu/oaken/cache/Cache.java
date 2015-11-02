@@ -10,15 +10,22 @@ import com.xmxedu.oaken.model.AdBasicData;
  * @author xmzheng
  * @version 1.0.1
  */
-public abstract class Cache {
-  public abstract void setAdBasicData(HashMap<String, AdBasicData> data);
-  public abstract AdBasicData getAdDataByAdid(String adid);
+public interface Cache {
+  // put into data by a hash map
+  public void setAdBasicData(HashMap<String, AdBasicData> data);
 
-  public abstract void putAdDataByAdid(String adid, AdBasicData value);
+  // get a ad basic data by a ad id
+  public AdBasicData getAdDataByAdid(String adid);
 
-  public abstract void initCache();
+  // put a ad basic data with a ad id key
+  public void putAdDataByAdid(String adid, AdBasicData value);
 
-  public abstract void disconnectCache();
-  
-  public abstract String getCacheName();
+  // initialize the cache if you have extra operation
+  public void initCache();
+
+  // disconnect a cache when u do not using it
+  public void disconnectCache();
+
+  // get the same of your cache name,such as localCache,redisCache
+  public String getCacheName();
 }
