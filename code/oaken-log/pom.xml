@@ -14,10 +14,5 @@
 	<artifactId>oaken-log</artifactId>
 	<name>Oaken Log</name>
 	<dependencies>
-		  <dependency>
-    <groupId>com.roomorama</groupId>
-    <artifactId>caldroid</artifactId>
-    <version>2.1.0</version>
-</dependency>
-</dependencies>
+	</dependencies>
 </project>	
