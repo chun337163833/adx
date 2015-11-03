@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,6 +21,8 @@ import java.sql.SQLException;
  *
  * @version 1.0.1
  */
+
+@Service
 public class JdbcAppInfoRepository implements AppInfoRepository {
 
     private final static Logger logger = LoggerFactory.getLogger(JdbcAppInfoRepository.class);
@@ -45,6 +48,10 @@ public class JdbcAppInfoRepository implements AppInfoRepository {
         } catch (DataAccessException e) {
             logger.error("get appinfo by appid encounter an error: " + e.getMessage());
         }
+        return null;
+    }
+
+    public AppInfo getAppInfoByAppName(String appName) {
         return null;
     }
 }
