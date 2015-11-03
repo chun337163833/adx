@@ -10,17 +10,22 @@ import com.xmxedu.oaken.model.AdBasicData;
  * @author xmzheng
  * @version 1.0.1
  */
-public abstract class Cache {
-  // 设置广告中媒体的数据信息
-  public abstract void setAdBasicData(HashMap<String, AdBasicData> data);
-  // 根据广告位来获取其对应的广告，媒体，所有者信息
-  public abstract AdBasicData getAdDataByAdid(String adid);
-  // 将某个广告位的数据信息加入缓存中
-  public abstract void putAdDataByAdid(String adid, AdBasicData value);
-  // 初始化缓存的相关配置
-  public abstract void initCache();
-  // 关闭缓存，释放相关资源
-  public abstract void disconnectCache();
-  // 获取缓存的名字
-  public abstract String getCacheName();
+public interface Cache {
+  // put into data by a hash map
+  public void setAdBasicData(HashMap<String, AdBasicData> data);
+
+  // get a ad basic data by a ad id
+  public AdBasicData getAdDataByAdid(String adid);
+
+  // put a ad basic data with a ad id key
+  public void putAdDataByAdid(String adid, AdBasicData value);
+
+  // initialize the cache if you have extra operation
+  public void initCache();
+
+  // disconnect a cache when u do not using it
+  public void disconnectCache();
+
+  // get the same of your cache name,such as localCache,redisCache
+  public String getCacheName();
 }
