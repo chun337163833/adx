@@ -12,7 +12,7 @@ import com.xmxedu.oaken.model.AdBasicData;
  * @author xmzheng
  * @version 1.0.1
  */
-public class RedisCache extends Cache {
+public class RedisCache implements Cache {
   
   private final static Logger logger = LoggerFactory.getLogger(RedisCache.class);
 
