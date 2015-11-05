@@ -39,8 +39,21 @@ public class JdbcAppInfoRepository implements AppInfoRepository {
 
         try {
             AppInfo appInfo = (AppInfo) this.nPJT.queryForObject(selectAppInfoByAppId, namedParameters, new RowMapper() {
-                public AppInfo mapRow(ResultSet resultSet, int i) throws SQLException {
+                public AppInfo mapRow(ResultSet rs, int i) throws SQLException {
                     AppInfo ai = new AppInfo();
+
+                    ai.setId(rs.getInt("id"));
+                    ai.setName(rs.getString("name"));
+                    ai.setShowId(rs.getString("showid"));
+                    ai.setOsTypeId(rs.getInt("ostypeid"));
+                    ai.setCategoryId(rs.getInt("categoryid"));
+                    ai.setPkgn(rs.getString("pkg"));
+                    ai.setNote(rs.getString("note"));
+                    ai.setStatus(rs.getInt("status"));
+                    ai.setCheckInfo(rs.getString("checkinfo"));
+                    ai.setCreateTime(rs.getLong("createtime"));
+                    ai.setCheckTime(rs.getLong("checktime"));
+
                     return ai;
                 }
             });
