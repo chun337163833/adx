@@ -34,7 +34,7 @@ public class JdbcAppInfoRepository implements AppInfoRepository {
     }
 
     public AppInfo getAppInfoByAppId(String appId) {
-        String selectAppInfoByAppId = "SELECT `id` FROM `oaken`.`appinfo` where appid = :appid";
+        String selectAppInfoByAppId = "SELECT `id`,`name`,`showid`,`ostypeid`,`categoryid`,`pkgn`,`note`,`status`,`checkinfo`,`createtime`,`checktime` FROM `oaken`.`appinfo` where appid = :appid";
         SqlParameterSource namedParameters = new MapSqlParameterSource("appid", appId);
 
         try {
