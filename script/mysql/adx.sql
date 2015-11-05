@@ -39,9 +39,11 @@ CREATE TABLE `tb_ad_type` (
   `type` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`,`type`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `tb_ad_type` */
+
+insert  into `tb_ad_type`(`id`,`type`) values (1,'横幅'),(2,'全插屏'),(3,'语音'),(4,'视频');
 
 /*Table structure for table `tb_app_category` */
 
@@ -52,15 +54,17 @@ CREATE TABLE `tb_app_category` (
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '类别名称',
   PRIMARY KEY (`id`,`name`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `tb_app_category` */
 
-/*Table structure for table `tb_app_in_otherplatform` */
+insert  into `tb_app_category`(`id`,`name`) values (1,'教育阅读'),(2,'体育篮球'),(3,'美食烹饪');
 
-DROP TABLE IF EXISTS `tb_app_in_otherplatform`;
+/*Table structure for table `tb_app_in_thirdparty` */
 
-CREATE TABLE `tb_app_in_otherplatform` (
+DROP TABLE IF EXISTS `tb_app_in_thirdparty`;
+
+CREATE TABLE `tb_app_in_thirdparty` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `appname` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `platformid` int(11) NOT NULL,
@@ -70,9 +74,11 @@ CREATE TABLE `tb_app_in_otherplatform` (
   `incometype` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`,`platformid`,`appid`,`adid`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-/*Data for the table `tb_app_in_otherplatform` */
+/*Data for the table `tb_app_in_thirdparty` */
+
+insert  into `tb_app_in_thirdparty`(`id`,`appname`,`platformid`,`appid`,`adid`,`showtype`,`incometype`) values (1,'wifi万能钥匙',1,2147483647,2147483647,1,NULL);
 
 /*Table structure for table `tb_app_info` */
 
@@ -105,9 +111,11 @@ CREATE TABLE `tb_app_os` (
   `type` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT 'android，iOS,winphone',
   PRIMARY KEY (`id`,`type`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `tb_app_os` */
+
+insert  into `tb_app_os`(`id`,`type`) values (1,'Android'),(2,'iOS'),(3,'WinPhone'),(4,'WebApi');
 
 /*Table structure for table `tb_biz_ad_showtype` */
 
@@ -194,24 +202,6 @@ CREATE TABLE `tb_biz_user_bank` (
 
 /*Data for the table `tb_biz_user_bank` */
 
-/*Table structure for table `tb_otherplatform` */
-
-DROP TABLE IF EXISTS `tb_otherplatform`;
-
-CREATE TABLE `tb_otherplatform` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` int(11) NOT NULL,
-  `requesttype` int(11) NOT NULL,
-  `platformtype` int(11) NOT NULL,
-  `requesturl` int(11) NOT NULL,
-  `key` int(11) DEFAULT NULL,
-  `token` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`,`name`,`requesttype`,`platformtype`,`requesturl`),
-  UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-/*Data for the table `tb_otherplatform` */
-
 /*Table structure for table `tb_paymentplatform` */
 
 DROP TABLE IF EXISTS `tb_paymentplatform`;
@@ -224,6 +214,26 @@ CREATE TABLE `tb_paymentplatform` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `tb_paymentplatform` */
+
+/*Table structure for table `tb_thirdparty` */
+
+DROP TABLE IF EXISTS `tb_thirdparty`;
+
+CREATE TABLE `tb_thirdparty` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `requesttype` int(11) NOT NULL,
+  `platformtype` int(11) NOT NULL,
+  `requesturl` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `key` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`,`name`,`requesttype`,`platformtype`,`requesturl`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `tb_thirdparty` */
+
+insert  into `tb_thirdparty`(`id`,`name`,`requesttype`,`platformtype`,`requesturl`,`key`,`token`) values (1,'广点通',1,2,'http://mi.gdt.qq.com/gdt_mview.fcg',NULL,NULL),(2,'芒果',1,2,'http://api2.adsmogo.com/ad?',NULL,NULL),(3,'点媒',1,2,'http://api.lomark.cn/v2/get',NULL,NULL);
 
 /*Table structure for table `tb_user` */
 
