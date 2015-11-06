@@ -6,6 +6,8 @@ import com.xmxedu.oaken.model.AppInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -26,12 +28,10 @@ import java.sql.SQLException;
 public class JdbcAppInfoRepository implements AppInfoRepository {
 
     private final static Logger logger = LoggerFactory.getLogger(JdbcAppInfoRepository.class);
-    private NamedParameterJdbcTemplate nPJT;
 
     @Autowired
-    public JdbcAppInfoRepository(BasicDataSource basicDataSource) {
-        this.nPJT = new NamedParameterJdbcTemplate(basicDataSource);
-    }
+    @Qualifier("bNPJdbcTemplate")
+    private NamedParameterJdbcTemplate nPJT;
 
     public AppInfo getAppInfoByAppId(String appId) {
         String selectAppInfoByAppId = "SELECT `id`,`name`,`showid`,`ostypeid`,`categoryid`,`pkgn`,`note`,`status`,`checkinfo`,`createtime`,`checktime` FROM `oaken`.`appinfo` where appid = :appid";
