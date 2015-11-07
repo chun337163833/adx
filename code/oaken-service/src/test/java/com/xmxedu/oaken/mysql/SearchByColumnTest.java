@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.io.FileNotFoundException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"applicationContext.xml"})
+@ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 public class SearchByColumnTest {
 
     @Autowired
