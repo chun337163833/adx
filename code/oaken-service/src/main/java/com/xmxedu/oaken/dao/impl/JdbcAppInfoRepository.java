@@ -33,9 +33,9 @@ public class JdbcAppInfoRepository implements AppInfoRepository {
     @Qualifier("bNPJdbcTemplate")
     private NamedParameterJdbcTemplate nPJT;
 
-    public AppInfo getAppInfoByAppId(String appId) {
-        String selectAppInfoByAppId = "SELECT `id`,`name`,`showid`,`ostypeid`,`categoryid`,`pkgn`,`note`,`status`,`checkinfo`,`createtime`,`checktime` FROM `oaken`.`appinfo` where appid = :appid";
-        SqlParameterSource namedParameters = new MapSqlParameterSource("appid", appId);
+    public AppInfo getAppInfoByAppId(String showId) {
+        String selectAppInfoByAppId = "SELECT `id`,`name`,`showid`,`ostypeid`,`categoryid`,`pkgn`,`note`,`status`,`checkinfo`,`createtime`,`checktime` FROM `adx`.`tb_app_info` where showId = :showId";
+        SqlParameterSource namedParameters = new MapSqlParameterSource("showId", showId);
 
         try {
             AppInfo appInfo = (AppInfo) this.nPJT.queryForObject(selectAppInfoByAppId, namedParameters, new RowMapper() {
@@ -47,7 +47,7 @@ public class JdbcAppInfoRepository implements AppInfoRepository {
                     ai.setShowId(rs.getString("showid"));
                     ai.setOsTypeId(rs.getInt("ostypeid"));
                     ai.setCategoryId(rs.getInt("categoryid"));
-                    ai.setPkgn(rs.getString("pkg"));
+                    ai.setPkgn(rs.getString("pkgn"));
                     ai.setNote(rs.getString("note"));
                     ai.setStatus(rs.getInt("status"));
                     ai.setCheckInfo(rs.getString("checkinfo"));
