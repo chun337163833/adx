@@ -8,22 +8,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.io.FileNotFoundException;
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
-public class SearchByColumnTest {
+public class JdbcTemplateTest {
 
     @Autowired
-    private JdbcAppInfoRepository appInfoRepository;
+    private JdbcAppInfoRepository jdbcAppInfoRepository;
 
     @Test
-    public void mainTest() throws FileNotFoundException {
-        if (null == appInfoRepository){
-            System.out.println("null pointer exception");
-            return;
+    public void mainTest(){
+        if (null == jdbcAppInfoRepository){
+            throw new NullPointerException();
         }
 
-        AppInfo appinfo = appInfoRepository.getAppInfoByAppId("");
+        AppInfo appInfo = jdbcAppInfoRepository.getAppInfoByAppId("");
     }
+
 }
