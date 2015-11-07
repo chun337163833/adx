@@ -24,6 +24,12 @@ public class JdbcTemplateTest {
         }
 
         AppInfo appInfo = jdbcAppInfoRepository.getAppInfoByAppId("55ed62ff");
+
+        if (null == appInfo){
+            throw new NullPointerException("Cannot find the specific result~");
+        }
+
+        System.out.println(appInfo.getName());
     }
 
 }
