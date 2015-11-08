@@ -1,5 +1,7 @@
 package com.xmxedu.oaken.model;
 
+import com.xmxedu.oaken.sql.AppInfo;
+
 /**
  * 一次广告请求中所包含的所有基础信息，广告位，媒体，第三方平台
  * 

@@ -1,7 +1,7 @@
 package com.xmxedu.oaken.mysql;
 
 import com.xmxedu.oaken.dao.impl.JdbcAppInfoRepository;
-import com.xmxedu.oaken.model.AppInfo;
+import com.xmxedu.oaken.sql.AppInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.xmxedu.oaken.dao;
 
-import com.xmxedu.oaken.model.AppInfo;
+import com.xmxedu.oaken.sql.AppInfo;
 
 /**
  * Provid operations of AppInfo DAO in mysql

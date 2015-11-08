@@ -1,4 +1,4 @@
-package com.xmxedu.oaken.model;
+package com.xmxedu.oaken.sql;
 
 
 /**
