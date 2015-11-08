@@ -1,7 +1,7 @@
 package com.xmxedu.oaken.sql;
 
 /**
- * 关系映射表，媒体在第三方平台的对应关系
+ * 媒体在第三方平台的相关属性，会与本地的媒体进行映射
  * @version 1.0.0
  */
 public class AppInOtherPlatform {
