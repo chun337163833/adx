@@ -5,4 +5,24 @@ package com.xmxedu.oaken.sql;
  * @version 1.0.0
  */
 public class AppCategory {
+    //数据库自增id
+    private int id;
+    //媒体分类名称
+    private String name;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
