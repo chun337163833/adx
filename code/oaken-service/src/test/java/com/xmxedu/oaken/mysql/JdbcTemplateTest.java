@@ -18,7 +18,7 @@ public class JdbcTemplateTest {
     private JdbcAppInfoRepository jdbcAppInfoRepository;
 
     @Test
-    public void mainTest(){
+    public void GetAppInfoByAppIdTest(){
         if (null == jdbcAppInfoRepository){
             throw new NullPointerException();
         }
@@ -30,6 +30,20 @@ public class JdbcTemplateTest {
         }
 
         System.out.println(appInfo.getName());
+    }
+
+    @Test
+    public void GetAppInfoByAppNameTest(){
+        if (null == jdbcAppInfoRepository){
+            throw new NullPointerException("jdbc not initializating~");
+        }
+
+        AppInfo appInfo = jdbcAppInfoRepository.getAppInfoByAppName("好豆菜谱");
+        if (null == appInfo){
+            throw new NullPointerException("Cannot find specific result~");
+        }
+
+        System.out.println(appInfo.getCheckInfo());
     }
 
 }

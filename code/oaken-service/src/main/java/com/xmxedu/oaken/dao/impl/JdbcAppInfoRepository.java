@@ -29,12 +29,16 @@ public class JdbcAppInfoRepository implements AppInfoRepository {
 
     private final static Logger logger = LoggerFactory.getLogger(JdbcAppInfoRepository.class);
 
+    private final static String tableName = " `adx`.`tb_app_info` ";
+    private final static String columnName = " `id`,`name`,`showid`,`ostypeid`,`categoryid`,`pkgn`,`note`,`status`,`checkinfo`,`createtime`,`checktime` ";
+
+
     @Autowired
     @Qualifier("bNPJdbcTemplate")
     private NamedParameterJdbcTemplate nPJT;
 
     public AppInfo getAppInfoByAppId(String showId) {
-        String selectAppInfoByAppId = "SELECT `id`,`name`,`showid`,`ostypeid`,`categoryid`,`pkgn`,`note`,`status`,`checkinfo`,`createtime`,`checktime` FROM `adx`.`tb_app_info` where showId = :showId";
+        String selectAppInfoByAppId = "SELECT" + columnName + "FROM" + tableName + "where showId = :showId";
         SqlParameterSource namedParameters = new MapSqlParameterSource("showId", showId);
 
         try {
@@ -65,6 +69,37 @@ public class JdbcAppInfoRepository implements AppInfoRepository {
     }
 
     public AppInfo getAppInfoByAppName(String appName) {
+
+        String selectAppInfoByAppName = "SELECT" + columnName + "FROM" + tableName + "where name = :name";
+        SqlParameterSource namedParameters = new MapSqlParameterSource("name",appName);
+
+        try {
+            AppInfo appInfo = (AppInfo)this.nPJT.queryForObject(selectAppInfoByAppName, namedParameters, new RowMapper<AppInfo>() {
+                public AppInfo mapRow(ResultSet rs, int i) throws SQLException {
+                    AppInfo ai = new AppInfo();
+
+                    ai.setId(rs.getInt("id"));
+                    ai.setName(rs.getString("name"));
+                    ai.setShowId(rs.getString("showid"));
+                    ai.setOsTypeId(rs.getInt("ostypeid"));
+                    ai.setCategoryId(rs.getInt("categoryid"));
+                    ai.setPkgn(rs.getString("pkgn"));
+                    ai.setNote(rs.getString("note"));
+                    ai.setStatus(rs.getInt("status"));
+                    ai.setCheckInfo(rs.getString("checkinfo"));
+                    ai.setCreateTime(rs.getLong("createtime"));
+                    ai.setCheckTime(rs.getLong("checktime"));
+
+                    return ai;
+                }
+            });
+            return appInfo;
+        }
+        catch (DataAccessException e){
+            logger.error("get appinfo by appName encounter an error: " + e.getMessage());
+        }
+
+
         return null;
     }
 }
