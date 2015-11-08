@@ -1,7 +1,9 @@
 package com.xmxedu.oaken.sql;
 
 /**
- * Created by xmzheng on 15/11/3.
+ * 用户相关信息，媒体用户的所有者的相关信息
+ * @version 1.0.0
  */
 public class UserInfo {
+
 }
