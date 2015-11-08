@@ -5,5 +5,7 @@ package com.xmxedu.oaken.sql;
  * @version 1.0.0
  */
 public class UserInfo {
-
+    // 数据库自增id
+    private int id;
+    
 }
