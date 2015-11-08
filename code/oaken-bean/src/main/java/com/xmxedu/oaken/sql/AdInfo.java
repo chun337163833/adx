@@ -5,10 +5,21 @@ package com.xmxedu.oaken.sql;
  * @version 1.0.0
  */
 public class AdInfo {
+
+    // 数据库自增id
+    private int id;
     // 广告位名称
     private String name;
     // 广告位对外展示的唯一标示id
     private String showId;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
