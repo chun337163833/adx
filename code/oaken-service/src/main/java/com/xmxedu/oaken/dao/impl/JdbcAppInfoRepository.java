@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -34,6 +35,9 @@ public class JdbcAppInfoRepository implements AppInfoRepository {
     @Autowired
     @Qualifier("bNPJdbcTemplate")
     private NamedParameterJdbcTemplate nPJT;
+
+    @Autowired
+    private AppInfo ai;
 
     public AppInfo getAppInfoByAppId(String showId) {
         String selectAppInfoByAppId = "SELECT" + columnName + "FROM" + tableName + "where showId = :showId";

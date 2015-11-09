@@ -1,13 +1,34 @@
 package com.xmxedu.oaken.sql;
 
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Repository;
+
 /**
- * 媒体信息，包括所属用户和分类，此类需要经过数据库加载后进行使用
+ * 媒体信息，包括所属用户和分类，此类需要经过数据库加载后进行使用，spring中注意AppInfo的作用域范围
  * 
  * @author xmzheng
  * @version 1.0.1
  */
+
+@Repository
+@Scope(value = "singleton")
 public class AppInfo {
+
+    //数据库中的列名称
+    public final static String COLUMN_ID = "id";
+    public final static String COLUMN_NAME = "name";
+    public final static String COLUMN_SHOWID = "showid";
+    public final static String COLUMN_OSTYPEID = "osTypeid";
+    public final static String COLUMN_CATEGORYID = "categoryid";
+    public final static String COLUMN_PKGN = "pkgn";
+    public final static String COLUMN_NOTE = "note";
+    public final static String COLUMN_CONTENT = "content";
+    public final static String COLUMN_STATUS = "status";
+    public final static String COLUMN_CHECKINFO = "checkinfo";
+    public final static String COLUMN_CREATETIME = "createtime";
+    public final static String COLUMN_CHECKTIME = "checktime";
+
     //  自增id
     private int id;
 
