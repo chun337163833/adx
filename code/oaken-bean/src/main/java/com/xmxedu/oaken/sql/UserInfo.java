@@ -1,10 +1,27 @@
 package com.xmxedu.oaken.sql;
 
+import org.springframework.stereotype.Repository;
+
 /**
  * 用户相关信息，媒体用户的所有者的相关信息
  * @version 1.0.0
  */
+@Repository
 public class UserInfo {
+
+    public final static String TABLE_NAME = " `adx`.`tb_user_info` ";
+    public final static String ALL_COLUMN_NAME = " `id`,`nickname`,`password`,`status`,`realname`,`phone`,`qq`,`identityaccount`,`identitypicture`,`registertime` ";
+
+    public final static String COLUMN_ID = "id";
+    public final static String COLUMN_NICKNAME = "nickname";
+    public final static String COLUMN_PASSWORD = "password";
+    public final static String COLUMN_REALNAME = "realname";
+    public final static String COLUMN_PHONE = "phone";
+    public final static String COLUMN_QQ = "qq";
+    public final static String COLUMN_IDENTITYACCOUNT = "identityaccount";
+    public final static String COLUMN_IDENTITYPICTURE = "identitypicture";
+    public final static String COLUMN_REGISTERTIME = "registertime";
+
     // 数据库自增id
     private int id;
     // 用户昵称

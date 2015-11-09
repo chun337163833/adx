@@ -15,11 +15,15 @@ import org.springframework.stereotype.Repository;
 @Scope(value = "singleton")
 public class AppInfo {
 
+    // 数据库表名和全列表名称
+    public final static String TABLE_NAME = " `adx`.`tb_app_info` ";
+    public final static String ALL_COLUMN_NAME = " `id`,`name`,`showid`,`ostypeid`,`categoryid`,`pkgn`,`note`,`status`,`checkinfo`,`createtime`,`checktime` ";
+
     //数据库中的列名称
     public final static String COLUMN_ID = "id";
     public final static String COLUMN_NAME = "name";
     public final static String COLUMN_SHOWID = "showid";
-    public final static String COLUMN_OSTYPEID = "osTypeid";
+    public final static String COLUMN_OSTYPEID = "ostypeid";
     public final static String COLUMN_CATEGORYID = "categoryid";
     public final static String COLUMN_PKGN = "pkgn";
     public final static String COLUMN_NOTE = "note";

@@ -1,7 +1,9 @@
 package com.xmxedu.oaken.dao.impl;
 
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.Appinfo;
 import com.xmxedu.oaken.dao.AppInfoRepository;
 import com.xmxedu.oaken.sql.AppInfo;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +30,6 @@ public class JdbcAppInfoRepository implements AppInfoRepository {
 
     private final static Logger logger = LoggerFactory.getLogger(JdbcAppInfoRepository.class);
 
-    private final static String tableName = " `adx`.`tb_app_info` ";
-    private final static String columnName = " `id`,`name`,`showid`,`ostypeid`,`categoryid`,`pkgn`,`note`,`status`,`checkinfo`,`createtime`,`checktime` ";
-
-
     @Autowired
     @Qualifier("bNPJdbcTemplate")
     private NamedParameterJdbcTemplate nPJT;
@@ -40,7 +38,7 @@ public class JdbcAppInfoRepository implements AppInfoRepository {
     private AppInfo ai;
 
     public AppInfo getAppInfoByAppId(String showId) {
-        String selectAppInfoByAppId = "SELECT" + columnName + "FROM" + tableName + "where showId = :showId";
+        String selectAppInfoByAppId = "SELECT" + AppInfo.ALL_COLUMN_NAME + "FROM" + AppInfo.TABLE_NAME + "where showId = :showId";
         SqlParameterSource namedParameters = new MapSqlParameterSource("showId", showId);
 
         try {
@@ -48,17 +46,17 @@ public class JdbcAppInfoRepository implements AppInfoRepository {
                 public AppInfo mapRow(ResultSet rs, int i) throws SQLException {
                     AppInfo ai = new AppInfo();
 
-                    ai.setId(rs.getInt("id"));
-                    ai.setName(rs.getString("name"));
-                    ai.setShowId(rs.getString("showid"));
-                    ai.setOsTypeId(rs.getInt("ostypeid"));
-                    ai.setCategoryId(rs.getInt("categoryid"));
-                    ai.setPkgn(rs.getString("pkgn"));
-                    ai.setNote(rs.getString("note"));
-                    ai.setStatus(rs.getInt("status"));
-                    ai.setCheckInfo(rs.getString("checkinfo"));
-                    ai.setCreateTime(rs.getLong("createtime"));
-                    ai.setCheckTime(rs.getLong("checktime"));
+                    ai.setId(rs.getInt(AppInfo.COLUMN_ID));
+                    ai.setName(rs.getString(AppInfo.COLUMN_NAME));
+                    ai.setShowId(rs.getString(AppInfo.COLUMN_SHOWID));
+                    ai.setOsTypeId(rs.getInt(AppInfo.COLUMN_OSTYPEID));
+                    ai.setCategoryId(rs.getInt(AppInfo.COLUMN_CATEGORYID));
+                    ai.setPkgn(rs.getString(AppInfo.COLUMN_PKGN));
+                    ai.setNote(rs.getString(AppInfo.COLUMN_NOTE));
+                    ai.setStatus(rs.getInt(AppInfo.COLUMN_STATUS));
+                    ai.setCheckInfo(rs.getString(AppInfo.COLUMN_CHECKINFO));
+                    ai.setCreateTime(rs.getLong(AppInfo.COLUMN_CREATETIME));
+                    ai.setCheckTime(rs.getLong(AppInfo.COLUMN_CHECKTIME));
 
                     return ai;
                 }
@@ -72,7 +70,7 @@ public class JdbcAppInfoRepository implements AppInfoRepository {
 
     public AppInfo getAppInfoByAppName(String appName) {
 
-        String selectAppInfoByAppName = "SELECT" + columnName + "FROM" + tableName + "where name = :name";
+        String selectAppInfoByAppName = "SELECT" + AppInfo.ALL_COLUMN_NAME + "FROM" + AppInfo.TABLE_NAME + "where name = :name";
         SqlParameterSource namedParameters = new MapSqlParameterSource("name",appName);
 
         try {
@@ -80,17 +78,17 @@ public class JdbcAppInfoRepository implements AppInfoRepository {
                 public AppInfo mapRow(ResultSet rs, int i) throws SQLException {
                     AppInfo ai = new AppInfo();
 
-                    ai.setId(rs.getInt("id"));
-                    ai.setName(rs.getString("name"));
-                    ai.setShowId(rs.getString("showid"));
-                    ai.setOsTypeId(rs.getInt("ostypeid"));
-                    ai.setCategoryId(rs.getInt("categoryid"));
-                    ai.setPkgn(rs.getString("pkgn"));
-                    ai.setNote(rs.getString("note"));
-                    ai.setStatus(rs.getInt("status"));
-                    ai.setCheckInfo(rs.getString("checkinfo"));
-                    ai.setCreateTime(rs.getLong("createtime"));
-                    ai.setCheckTime(rs.getLong("checktime"));
+                    ai.setId(rs.getInt(AppInfo.COLUMN_ID));
+                    ai.setName(rs.getString(AppInfo.COLUMN_NAME));
+                    ai.setShowId(rs.getString(AppInfo.COLUMN_SHOWID));
+                    ai.setOsTypeId(rs.getInt(AppInfo.COLUMN_OSTYPEID));
+                    ai.setCategoryId(rs.getInt(AppInfo.COLUMN_CATEGORYID));
+                    ai.setPkgn(rs.getString(AppInfo.COLUMN_PKGN));
+                    ai.setNote(rs.getString(AppInfo.COLUMN_NOTE));
+                    ai.setStatus(rs.getInt(AppInfo.COLUMN_STATUS));
+                    ai.setCheckInfo(rs.getString(AppInfo.COLUMN_CHECKINFO));
+                    ai.setCreateTime(rs.getLong(AppInfo.COLUMN_CREATETIME));
+                    ai.setCheckTime(rs.getLong(AppInfo.COLUMN_CHECKTIME));
 
                     return ai;
                 }

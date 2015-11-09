@@ -24,7 +24,7 @@ public class LoadAdBasicData implements ILoadService {
   private final static Logger logger = LoggerFactory.getLogger(LoadAdBasicData.class);
   private static Cache cache = new LocalCache();
 
-  @Override
+
   public void loadDataAtFixedTime() {
     // some business to collect the ad basic data according by ad unit id
     HashMap<String, AdBasicData> data = Maps.newHashMap();

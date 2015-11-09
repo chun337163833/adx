@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @BootstrapWith
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
-public class JdbcTemplateTest {
+public class AppInfoJdbcTemplateTest {
 
     @Autowired
     private JdbcAppInfoRepository jdbcAppInfoRepository;
