@@ -23,6 +23,7 @@ import java.sql.SQLException;
  * 对数据库中用户信息的名称的表提供DAO相关操作，将接口与实现进行分离
  * 目前对NameParameterJdbcTemplate是否提供一个单一的初始化过程
  */
+
 @Service
 public class JdbcUserInfoReposittory implements UserInfoRepository {
 
@@ -32,16 +33,13 @@ public class JdbcUserInfoReposittory implements UserInfoRepository {
     @Qualifier("bNPJdbcTemplate")
     private NamedParameterJdbcTemplate nPJT;
 
-    @Autowired
-    private UserInfo userInfo;
-
     public UserInfo getUserInfoByUserId(String userId) {
 
         String selectUserInfoByAppId = "SELECT" + UserInfo.ALL_COLUMN_NAME + "FROM" + UserInfo.TABLE_NAME + "where Id = :Id";
         SqlParameterSource namedParameters = new MapSqlParameterSource("Id", userId);
 
         try {
-            userInfo = this.nPJT.queryForObject(selectUserInfoByAppId, namedParameters, new RowMapper<UserInfo>() {
+            UserInfo userInfo = this.nPJT.queryForObject(selectUserInfoByAppId, namedParameters, new RowMapper<UserInfo>() {
                 public UserInfo mapRow(ResultSet resultSet, int i) throws SQLException {
                     UserInfo userInfo = new UserInfo();
 
@@ -73,7 +71,7 @@ public class JdbcUserInfoReposittory implements UserInfoRepository {
         SqlParameterSource namedParameters = new MapSqlParameterSource("nickName", userName);
 
         try {
-            userInfo = this.nPJT.queryForObject(selectUserInfoByAppId, namedParameters, new RowMapper<UserInfo>() {
+            UserInfo userInfo = this.nPJT.queryForObject(selectUserInfoByAppId, namedParameters, new RowMapper<UserInfo>() {
                 public UserInfo mapRow(ResultSet resultSet, int i) throws SQLException {
                     UserInfo userInfo = new UserInfo();
 

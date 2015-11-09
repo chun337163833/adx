@@ -34,9 +34,6 @@ public class JdbcAppInfoRepository implements AppInfoRepository {
     @Qualifier("bNPJdbcTemplate")
     private NamedParameterJdbcTemplate nPJT;
 
-    @Autowired
-    private AppInfo ai;
-
     public AppInfo getAppInfoByAppId(String showId) {
         String selectAppInfoByAppId = "SELECT" + AppInfo.ALL_COLUMN_NAME + "FROM" + AppInfo.TABLE_NAME + "where showId = :showId";
         SqlParameterSource namedParameters = new MapSqlParameterSource("showId", showId);
