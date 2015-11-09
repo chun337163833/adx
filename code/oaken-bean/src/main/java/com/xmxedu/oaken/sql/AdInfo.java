@@ -6,6 +6,13 @@ package com.xmxedu.oaken.sql;
  */
 public class AdInfo {
 
+    public final static String TABLE_NAME = " `adx`.`tb_ad_info` ";
+    public final static String ALL_COLUMN_NAME = " `id`,`name`,`showid` ";
+
+    public final static String COLUMN_ID = "id";
+    public final static String COLUMN_NAME = "name";
+    public final static String COLUMN_SHOWID = "showid";
+
     // 数据库自增id
     private int id;
     // 广告位名称
