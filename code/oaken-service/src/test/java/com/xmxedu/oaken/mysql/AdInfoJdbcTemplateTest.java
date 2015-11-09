@@ -1,7 +1,6 @@
 package com.xmxedu.oaken.mysql;
 
 import com.xmxedu.oaken.dao.impl.JdbcAdInfoRepository;
-import com.xmxedu.oaken.dao.impl.JdbcAppInfoRepository;
 import com.xmxedu.oaken.sql.AdInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,7 +26,7 @@ public class AdInfoJdbcTemplateTest {
         AdInfo adInfo = this.jdbcAdInfoRepository.getAdInfoByShowId(showId);
 
         if (null == adInfo){
-            throw new NullPointerException("can not get the specific result of key:" + showId);
+            throw new NullPointerException("can not get the specific result of key: " + showId);
         }
 
         System.out.println(adInfo.getName());
