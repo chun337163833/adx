@@ -8,6 +8,10 @@ public class AdType {
 
     public final static String TABLE_NAME = " `adx`.`tb_ad_type` ";
     public final static String ALL_COLUMN_NAME = " `id`,`type` ";
+
+    public final static String COLUMN_ID = "id";
+    public final static String COLUMN_TYPE = "type";
+
     // 数据库自增的id
     private int id;
     // 广告类型名称
