@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,6 +21,7 @@ import java.sql.SQLException;
  * 对数据库中广告类型的表提供DAO相关操作，将接口与实现进行分离
  * @version 1.0.0
  */
+@Service
 public class JdbcAdTypeRepository implements AdTypeRepository {
 
     private final static Logger logger = LoggerFactory.getLogger(JdbcAdTypeRepository.class);
@@ -29,7 +31,7 @@ public class JdbcAdTypeRepository implements AdTypeRepository {
     private NamedParameterJdbcTemplate nPJT;
 
     public AdType getAdTypeById(int id) {
-        String selectAdTypeById = "SELECT" + AdType.ALL_COLUMN_NAME + "FROM" + AdInfo.TABLE_NAME + "where id = :id";
+        String selectAdTypeById = "SELECT" + AdType.ALL_COLUMN_NAME + "FROM" + AdType.TABLE_NAME + "where id = :id";
         SqlParameterSource namedParameters = new MapSqlParameterSource("id",id);
 
         try {
