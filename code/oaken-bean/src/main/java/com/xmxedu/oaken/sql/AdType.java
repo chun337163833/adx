@@ -5,6 +5,9 @@ package com.xmxedu.oaken.sql;
  * @version 1.0.0
  */
 public class AdType {
+
+    public final static String TABLE_NAME = " `adx`.`tb_ad_type` ";
+    public final static String ALL_COLUMN_NAME = " `id`,`type` ";
     // 数据库自增的id
     private int id;
     // 广告类型名称

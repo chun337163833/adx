@@ -1,6 +1,6 @@
 package com.xmxedu.oaken.mysql;
 
-import com.xmxedu.oaken.dao.impl.JdbcUserInfoReposittory;
+import com.xmxedu.oaken.dao.impl.JdbcUserInfoRepository;
 import com.xmxedu.oaken.sql.UserInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,15 +13,15 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class UserInfoJdbcTemplateTest {
 
     @Autowired
-    private JdbcUserInfoReposittory jdbcUserInfoReposittory;
+    private JdbcUserInfoRepository jdbcUserInfoRepository;
 
     @Test
     public void getUserInfoByUserIdTest(){
-        if (null == jdbcUserInfoReposittory){
+        if (null == jdbcUserInfoRepository){
             throw new NullPointerException("can not initialing the jdbc reposittory~ ");
         }
 
-        UserInfo userInfo = this.jdbcUserInfoReposittory.getUserInfoByUserName("test");
+        UserInfo userInfo = this.jdbcUserInfoRepository.getUserInfoByUserName("test");
 
         if (null == userInfo){
             throw new NullPointerException("can not get the right sql query result~");
