@@ -5,6 +5,13 @@ package com.xmxedu.oaken.sql;
  * @version 1.0.0
  */
 public class AppCategory {
+
+    public final static String TABLE_NAME = " `adx`.`tb_app_category` ";
+    public final static String ALL_COLUMN_NAME = " `id`,`name` ";
+
+    public final static String COLUMN_ID = "id";
+    public final static String COLUMN_NAME = "name";
+
     //数据库自增id
     private int id;
     //媒体分类名称

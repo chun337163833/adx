@@ -23,7 +23,7 @@ public class AdTypeJdbcTemplateTest {
             throw new NullPointerException("jdbcAdTypeRepository is not initilization~");
         }
 
-        AdType adType = jdbcAdTypeRepository.getAdTypeById(4);
+        AdType adType = jdbcAdTypeRepository.getAdTypeById(1);
 
         if (null == adType){
             throw new NullPointerException("Can not find specific result");
