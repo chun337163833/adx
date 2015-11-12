@@ -5,6 +5,18 @@ package com.xmxedu.oaken.sql;
  * @version 1.0.0
  */
 public class AppInOtherPlatform {
+
+    public final static String TABLE_NAME = " `adx`.`tb_app_in_thirdparty` ";
+    public final static String ALL_COLUMN_NAME = " `id`,`appname`,`platformid`,`appid`,`adid`,`showtype`,`incometype` ";
+
+    public final static String COLUMN_ID = "id";
+    public final static String COLUMN_APP_NAME = "appname";
+    public final static String COLUMN_PLATFORM_ID = "platformid";
+    public final static String COLUMN_APP_ID = "appid";
+    public final static String COLUMN_AD_ID = "adid";
+    public final static String COLUMN_SHOW_TYPE = "showtype";
+    public final static String COLUMN_INCOME_TYPE = "incometype";
+
     // 数据库自增id
     private int id;
     // 媒体名称
