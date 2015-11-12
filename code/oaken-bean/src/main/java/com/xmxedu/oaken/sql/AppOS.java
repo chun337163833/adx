@@ -5,6 +5,13 @@ package com.xmxedu.oaken.sql;
  * @version 1.0.0
  */
 public class AppOS {
+
+    public final static String TABLE_NAME = " `adx`.`tb_app_os` ";
+    public final static String ALL_COLUMN_NAME = " `id`,`type` ";
+
+    public final static String COLUMN_ID = "id";
+    public final static String COLUMN_TYPE = "type";
+
     // 数据库自增id
     private int id;
     // 媒体系统

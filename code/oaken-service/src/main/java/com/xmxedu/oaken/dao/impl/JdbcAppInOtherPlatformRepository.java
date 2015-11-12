@@ -2,6 +2,7 @@ package com.xmxedu.oaken.dao.impl;
 
 import com.xmxedu.oaken.dao.AppInOtherPlatformRepository;
 import com.xmxedu.oaken.sql.AppInOtherPlatform;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,12 @@ public class JdbcAppInOtherPlatformRepository implements AppInOtherPlatformRepos
     private NamedParameterJdbcTemplate nPJT;
 
     public AppInOtherPlatform getAppInOtherPlatformById(int id) {
+
+        if (id < 0){
+            logger.error("invalid id~");
+            return null;
+        }
+
         String selectAIOById = "SELECT" + AppInOtherPlatform.ALL_COLUMN_NAME + "FROM" + AppInOtherPlatform.TABLE_NAME + "where id = :id";
         SqlParameterSource namedParametered = new MapSqlParameterSource("id",id);
         try {
@@ -55,6 +62,10 @@ public class JdbcAppInOtherPlatformRepository implements AppInOtherPlatformRepos
     }
 
     public AppInOtherPlatform getAppInOtherPlatformByAppName(String appName) {
+        if (StringUtils.isBlank(appName)){
+            logger.error("invalid appname~");
+            return null;
+        }
         String selectAIOById = "SELECT" + AppInOtherPlatform.ALL_COLUMN_NAME + "FROM" + AppInOtherPlatform.TABLE_NAME + "where appname = :appname";
         SqlParameterSource namedParametered = new MapSqlParameterSource("appname",appName);
         try {
@@ -81,6 +92,11 @@ public class JdbcAppInOtherPlatformRepository implements AppInOtherPlatformRepos
     }
 
     public AppInOtherPlatform getAppInOtherPlatformByAppId(String appId) {
+
+        if (StringUtils.isBlank(appId)){
+            logger.error("invalid appid~");
+            return null;
+        }
 
         String selectAIOById = "SELECT" + AppInOtherPlatform.ALL_COLUMN_NAME + "FROM" + AppInOtherPlatform.TABLE_NAME + "where appid = :appid";
         SqlParameterSource namedParametered = new MapSqlParameterSource("appid",appId);

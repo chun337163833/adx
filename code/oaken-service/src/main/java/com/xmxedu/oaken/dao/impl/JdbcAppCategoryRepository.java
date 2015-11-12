@@ -31,6 +31,11 @@ public class JdbcAppCategoryRepository implements AppCategoryRepository {
 
     public AppCategory getAppCategoryById(int id) {
 
+        if (id < 0){
+            logger.error("invalid id in AppCategory");
+            return null;
+        }
+
         String selectAppCategoryById = "SELECT" + AppCategory.ALL_COLUMN_NAME + "FROM" + AppCategory.TABLE_NAME + "where id = :id";
         SqlParameterSource namedParameter = new MapSqlParameterSource("id",id);
 

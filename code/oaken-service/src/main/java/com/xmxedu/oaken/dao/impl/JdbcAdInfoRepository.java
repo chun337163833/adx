@@ -2,6 +2,7 @@ package com.xmxedu.oaken.dao.impl;
 
 import com.xmxedu.oaken.dao.AdInfoRepository;
 import com.xmxedu.oaken.sql.AdInfo;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,11 @@ public class JdbcAdInfoRepository implements AdInfoRepository {
     private NamedParameterJdbcTemplate nPJT;
 
     public AdInfo getAdInfoByShowId(String showId) {
+
+        if (StringUtils.isBlank(showId)){
+            logger.error("the showId is empty,pleasse check your showId");
+            return null;
+        }
 
         String selectAdInfoByShowId = "SELECT" + AdInfo.ALL_COLUMN_NAME + "FROM" + AdInfo.TABLE_NAME + "where showid = :showid";
         SqlParameterSource namedParameters = new MapSqlParameterSource("showid",showId);

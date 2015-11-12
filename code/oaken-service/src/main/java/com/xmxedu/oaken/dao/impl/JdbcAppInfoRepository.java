@@ -3,6 +3,7 @@ package com.xmxedu.oaken.dao.impl;
 import com.sun.xml.internal.bind.v2.schemagen.xmlschema.Appinfo;
 import com.xmxedu.oaken.dao.AppInfoRepository;
 import com.xmxedu.oaken.sql.AppInfo;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,6 +36,12 @@ public class JdbcAppInfoRepository implements AppInfoRepository {
     private NamedParameterJdbcTemplate nPJT;
 
     public AppInfo getAppInfoByAppId(String showId) {
+
+        if (StringUtils.isBlank(showId)){
+            logger.error("invalid showId,and its value is: " + showId);
+            return null;
+        }
+
         String selectAppInfoByAppId = "SELECT" + AppInfo.ALL_COLUMN_NAME + "FROM" + AppInfo.TABLE_NAME + "where showId = :showId";
         SqlParameterSource namedParameters = new MapSqlParameterSource("showId", showId);
 
@@ -66,6 +73,11 @@ public class JdbcAppInfoRepository implements AppInfoRepository {
     }
 
     public AppInfo getAppInfoByAppName(String appName) {
+
+        if (StringUtils.isBlank(appName)){
+            logger.error("invalid appname~");
+            return null;
+        }
 
         String selectAppInfoByAppName = "SELECT" + AppInfo.ALL_COLUMN_NAME + "FROM" + AppInfo.TABLE_NAME + "where name = :name";
         SqlParameterSource namedParameters = new MapSqlParameterSource("name",appName);
