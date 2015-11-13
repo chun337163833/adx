@@ -5,6 +5,15 @@ package com.xmxedu.oaken.sql;
  * @version 1.0.0
  */
 public class BizAdShowType {
+
+    public final static String TABLE_NAME = " ``.`` ";
+    public final static String ALL_COLUMN_NAME = " `id`,`adid`,`showtypeid`,`status` ";
+
+    public final static String COLUMN_ID = "id";
+    public final static String COLUMN_ADID = "adid";
+    public final static String COLUMN_SHOWTYPE_ID = "showtypeid";
+    public final static String COLUMN_STATUS = "status";
+
     // 数据库自增id
     private int id;
     // 媒体广告位id

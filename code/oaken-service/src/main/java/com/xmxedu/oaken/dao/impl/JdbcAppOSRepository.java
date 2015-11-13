@@ -1,7 +1,6 @@
 package com.xmxedu.oaken.dao.impl;
 
 import com.xmxedu.oaken.dao.AppOSRepository;
-import com.xmxedu.oaken.sql.AppInOtherPlatform;
 import com.xmxedu.oaken.sql.AppOS;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -13,7 +12,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import org.springframework.test.context.jdbc.Sql;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
