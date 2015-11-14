@@ -1,6 +1,6 @@
 package com.xmxedu.oaken.mysql;
 
-import com.xmxedu.oaken.dao.impl.JdbcAdInfoRepository;
+import com.xmxedu.oaken.dao.bll.JdbcAdInfoRepository;
 import com.xmxedu.oaken.sql.AdInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;

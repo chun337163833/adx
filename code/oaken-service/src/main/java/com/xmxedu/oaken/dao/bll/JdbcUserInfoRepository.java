@@ -1,7 +1,6 @@
-package com.xmxedu.oaken.dao.impl;
+package com.xmxedu.oaken.dao.bll;
 
 import com.xmxedu.oaken.dao.UserInfoRepository;
-import com.xmxedu.oaken.sql.AppInfo;
 import com.xmxedu.oaken.sql.UserInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,10 +11,8 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-import javax.xml.crypto.Data;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

@@ -1,15 +1,12 @@
-package com.xmxedu.oaken.dao.impl;
+package com.xmxedu.oaken.dao.bll;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.Appinfo;
 import com.xmxedu.oaken.dao.AppInfoRepository;
 import com.xmxedu.oaken.sql.AppInfo;
 import org.apache.commons.lang3.StringUtils;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Scope;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;

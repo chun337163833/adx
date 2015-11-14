@@ -1,7 +1,6 @@
-package com.xmxedu.oaken.dao.impl;
+package com.xmxedu.oaken.dao.bll;
 
 import com.xmxedu.oaken.dao.AdTypeRepository;
-import com.xmxedu.oaken.sql.AdInfo;
 import com.xmxedu.oaken.sql.AdType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

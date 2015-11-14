@@ -1,10 +1,16 @@
 package com.xmxedu.oaken.sql;
 
-/**
+/**   
  * 媒体广告映射表，一个媒体下的所有广告位信息
  * @version 1.0.0
  */
 public class BizAppAd {
+
+    public final static String TABLE_NAME = " `adx`.`tb_biz_app_ad` ";
+    public final static String ALL_COLUMN_NAME = " `id`,`appid`,`adid`,`status` ";
+
+    public final static String COLUMN_ID = "id";
+
     //数据库自增id
     private int id;
     //媒体对应的id；

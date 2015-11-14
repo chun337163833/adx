@@ -1,4 +1,4 @@
-package com.xmxedu.oaken.dao.impl;
+package com.xmxedu.oaken.dao.bll;
 
 import com.xmxedu.oaken.dao.BizAdShowTypeRepository;
 import com.xmxedu.oaken.sql.BizAdShowType;

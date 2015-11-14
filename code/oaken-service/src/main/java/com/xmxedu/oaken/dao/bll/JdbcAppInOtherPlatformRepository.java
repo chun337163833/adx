@@ -1,4 +1,4 @@
-package com.xmxedu.oaken.dao.impl;
+package com.xmxedu.oaken.dao.bll;
 
 import com.xmxedu.oaken.dao.AppInOtherPlatformRepository;
 import com.xmxedu.oaken.sql.AppInOtherPlatform;

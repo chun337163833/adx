@@ -1,4 +1,4 @@
-package com.xmxedu.oaken.dao.impl;
+package com.xmxedu.oaken.dao.bll;
 
 import com.xmxedu.oaken.dao.AppCategoryRepository;
 import com.xmxedu.oaken.sql.AppCategory;
