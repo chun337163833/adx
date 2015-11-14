@@ -5,6 +5,15 @@ package com.xmxedu.oaken.sql;
  * @version 1.0.0
  */
 public class BizAppRelationShip {
+
+    public final static String TABLE_NAME = " `adx`.`tb_biz_app_relationship` ";
+    public final static String ALL_COLUMN_NAME = " `id`,`ourad`,`otherplatformad`,`requestweight` ";
+
+    public final static String COLUMN_ID = "id";
+    public final static String COLUMN_OUR_AD = "ourad";
+    public final static String COLUMN_OTHERPLATFORM_AD = "otherplatformad";
+    public final static String COLUMN_REQUEST_WEIGHT = "requestweight";
+
     // 数据库自增id
     private int id;
     // 自家平台的媒体id
