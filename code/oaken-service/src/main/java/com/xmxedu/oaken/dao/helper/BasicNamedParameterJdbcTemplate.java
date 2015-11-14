@@ -1,4 +1,4 @@
-package com.xmxedu.oaken.dao;
+package com.xmxedu.oaken.dao.helper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;

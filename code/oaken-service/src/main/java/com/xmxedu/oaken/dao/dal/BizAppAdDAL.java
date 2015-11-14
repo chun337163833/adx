@@ -1,5 +1,6 @@
 package com.xmxedu.oaken.dao.dal;
 
+import com.xmxedu.oaken.dao.helper.BasicNamedParameterJdbcTemplate;
 import com.xmxedu.oaken.sql.BizAppAd;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -26,6 +27,7 @@ public class BizAppAdDAL {
 
     private final static Logger logger = LoggerFactory.getLogger(BizAppAdDAL.class);
 
+    // 非继承,主要是将数据源脱离于上层
     @Autowired
     @Qualifier("bNPJdbcTemplate")
     private NamedParameterJdbcTemplate nPJT;
