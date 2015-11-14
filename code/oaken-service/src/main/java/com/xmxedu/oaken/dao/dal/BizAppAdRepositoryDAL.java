@@ -62,9 +62,10 @@ public class BizAppAdRepositoryDAL {
             return bizAppAd;
         }
         catch (DataAccessException e){
-
+            logger.error("can not get the specific result of sql query clause: {} and mapParameter: {}", whereClause,source.toString());
         }
 
+        logger.info("sorry, u have get a nullable value of query~");
         return null;
     }
 
