@@ -10,6 +10,9 @@ public class BizAppAd {
     public final static String ALL_COLUMN_NAME = " `id`,`appid`,`adid`,`status` ";
 
     public final static String COLUMN_ID = "id";
+    public final static String COLUMN_APP_ID = "appid";
+    public final static String COLUMN_AD_ID = "adid";
+    public final static String COLUMN_STATUS = "status";
 
     //数据库自增id
     private int id;

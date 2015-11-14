@@ -29,7 +29,7 @@ public class BizAppAdRepositoryDAL {
             return null;
         }
 
-        String whereClause = "SELECT" +
+        String whereClause = "SELECT" + BizAppAd.ALL_COLUMN_NAME + "FROM" + BizAppAd.TABLE_NAME + "where " + where;
     }
 
 }
