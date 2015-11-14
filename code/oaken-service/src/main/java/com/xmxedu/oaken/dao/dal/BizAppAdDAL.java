@@ -2,7 +2,6 @@ package com.xmxedu.oaken.dao.dal;
 
 import com.xmxedu.oaken.sql.BizAppAd;
 import org.apache.commons.lang3.StringUtils;
-import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +22,9 @@ import java.sql.SQLException;
  */
 
 @Repository
-public class BizAppAdRepositoryDAL {
+public class BizAppAdDAL {
 
-    private final static Logger logger = LoggerFactory.getLogger(BizAppAdRepositoryDAL.class);
+    private final static Logger logger = LoggerFactory.getLogger(BizAppAdDAL.class);
 
     @Autowired
     @Qualifier("bNPJdbcTemplate")
