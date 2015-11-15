@@ -5,6 +5,15 @@ package com.xmxedu.oaken.sql;
  * @version 1.0.0
  */
 public class BizUserApp {
+
+    public final static String TABLE_NAME = " `adx`.`tb_biz_user_app` ";
+    public final static String ALL_COLUMN_NAME = " `id`,`userid`,`appid`,`status` ";
+
+    public final static String COLUMN_ID = "id";
+    public final static String COLUMN_USER_ID = "userid";
+    public final static String COLUMN_APP_ID = "appid";
+    public final static String COLUMN_STATUS = "status";
+
     // 数据库自增id
     private int id;
     // 用户id
