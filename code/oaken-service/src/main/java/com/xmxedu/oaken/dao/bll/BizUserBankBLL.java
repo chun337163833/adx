@@ -41,11 +41,31 @@ public class BizUserBankBLL {
 
     public BizUserBank getBizUserBankByPaymentWay(int paymentWay){
         if (paymentWay < 0){
-            logger.error("invalid payment id, suck it~");
+            logger.error("invalid payment way, suck it~");
             return null;
         }
 
         BizUserBank bizUserBank = this.bizUserBankDAL.getBizUserBankByWhereClause(BizUserBank.COLUMN_PAYMENT_WAY,String.valueOf(paymentWay));
+        return bizUserBank;
+    }
+
+    public BizUserBank getBizUserBankByPaymentId(int paymentId){
+        if (paymentId < 0){
+            logger.error("invalid payment id, suck it~");
+            return null;
+        }
+
+        BizUserBank bizUserBank = this.bizUserBankDAL.getBizUserBankByWhereClause(BizUserBank.COLUMN_PAYMENT_WAY,String.valueOf(paymentId));
+        return bizUserBank;
+    }
+
+    public BizUserBank getBizUserBankByStatus(int status){
+        if (status < 0){
+            logger.error("invalid status id, suck it~");
+            return null;
+        }
+
+        BizUserBank bizUserBank = this.bizUserBankDAL.getBizUserBankByWhereClause(BizUserBank.COLUMN_PAYMENT_WAY,String.valueOf(status));
         return bizUserBank;
     }
 }
