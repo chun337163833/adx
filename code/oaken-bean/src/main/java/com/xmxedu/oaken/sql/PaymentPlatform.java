@@ -5,6 +5,13 @@ package com.xmxedu.oaken.sql;
  * @version 1.0.0
  */
 public class PaymentPlatform {
+
+    public final static String TABLE_NAME = " `adx`.`tb_paymentplatform` ";
+    public final static String ALL_COLUMN_NAME = " `id`,`paymentplatformname` ";
+
+    public final static String COLUMN_ID = "id";
+    public final static String COLUMN_PAYMENT_PLATFORM_NAME = "paymentplatformname";
+
     //数据库自增id
     private int id;
     // 支付平台名称，支付宝，银行卡
