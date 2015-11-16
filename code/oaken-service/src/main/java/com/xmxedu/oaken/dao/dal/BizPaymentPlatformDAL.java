@@ -7,10 +7,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * 第三方支付平台相关DAO操作表
@@ -41,10 +45,20 @@ public class BizPaymentPlatformDAL {
         SqlParameterSource source = new MapSqlParameterSource(whereName,whereValue);
 
         try {
-            
+            PaymentPlatform paymentPlatform = this.nPJT.queryForObject(whereClause, source, new RowMapper<PaymentPlatform>() {
+                public PaymentPlatform mapRow(ResultSet resultSet, int i) throws SQLException {
+                    PaymentPlatform pp = new PaymentPlatform();
+
+                    pp.setId(resultSet.getInt(PaymentPlatform.COLUMN_ID));
+                    pp.setName(resultSet.getString(PaymentPlatform.COLUMN_PAYMENT_PLATFORM_NAME));
+
+                    return null;
+                }
+            });
+            return paymentPlatform;
         }
         catch (DataAccessException e){
-            logger.error("");
+            logger.error("can not get the specific result of it,its sql: {} and its map source: {}",whereClause,source.toString());
         }
         return null;
     }
