@@ -21,9 +21,9 @@ import java.sql.SQLException;
  * @version 1.0.0
  */
 @Repository
-public class BizPaymentPlatformDAL {
+public class PaymentPlatformDAL {
 
-    private final static Logger logger = LoggerFactory.getLogger(BizPaymentPlatformDAL.class);
+    private final static Logger logger = LoggerFactory.getLogger(PaymentPlatformDAL.class);
 
     // 非继承,主要是将数据源脱离于上层，采用组合的方式
     @Autowired

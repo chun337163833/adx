@@ -1,6 +1,6 @@
 package com.xmxedu.oaken.dao.bll;
 
-import com.xmxedu.oaken.dao.dal.BizPaymentPlatformDAL;
+import com.xmxedu.oaken.dao.dal.PaymentPlatformDAL;
 import com.xmxedu.oaken.sql.PaymentPlatform;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -13,12 +13,12 @@ import org.springframework.stereotype.Service;
  * @version 1.0.0
  */
 @Service
-public class BizPaymentPlatformBLL {
+public class PaymentPlatformBLL {
 
-    private final static Logger logger = LoggerFactory.getLogger(BizPaymentPlatformBLL.class);
+    private final static Logger logger = LoggerFactory.getLogger(PaymentPlatformBLL.class);
 
     @Autowired
-    private BizPaymentPlatformDAL bizPaymentPlatformDAL;
+    private PaymentPlatformDAL paymentPlatformDAL;
 
     public PaymentPlatform getPaymentPlatformById(int id){
         if (id < 0){
@@ -26,7 +26,7 @@ public class BizPaymentPlatformBLL {
             return null;
         }
 
-        PaymentPlatform paymentPlatform = this.bizPaymentPlatformDAL.getPaymentPlatformByWhereClause(PaymentPlatform.COLUMN_ID,String.valueOf(id));
+        PaymentPlatform paymentPlatform = this.paymentPlatformDAL.getPaymentPlatformByWhereClause(PaymentPlatform.COLUMN_ID,String.valueOf(id));
         return paymentPlatform;
     }
 
@@ -36,7 +36,7 @@ public class BizPaymentPlatformBLL {
             return null;
         }
 
-        PaymentPlatform paymentPlatform = this.bizPaymentPlatformDAL.getPaymentPlatformByWhereClause(PaymentPlatform.COLUMN_ID,name);
+        PaymentPlatform paymentPlatform = this.paymentPlatformDAL.getPaymentPlatformByWhereClause(PaymentPlatform.COLUMN_ID,name);
         return paymentPlatform;
     }
 }
