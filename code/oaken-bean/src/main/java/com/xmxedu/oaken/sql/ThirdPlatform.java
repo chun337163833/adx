@@ -4,6 +4,18 @@ package com.xmxedu.oaken.sql;
  * 第三方平台相关信息，请求方式，平台类型等
  */
 public class ThirdPlatform {
+
+    public final static String TABLE_NAME = " `adx`.`tb_thirdparty` ";
+    public final static String ALL_COLUMN_NAME = " `id`,`name`,`requesttype`,`platformtype`,`requesturl`,`key`,`token` ";
+
+    public final static String COLUMN_ID = "id";
+    public final static String COLUMN_NAME = "name";
+    public final static String COLUMN_REQUEST_TYPE = "requesttype";
+    public final static String COLUMN_PLATFORM_TYPE = "platformtype";
+    public final static String COLUMN_REQUEST_URL = "requesturl";
+    public final static String COLUMN_KEY = "key";
+    public final static String COLUMN_TOKEN = "token";
+
     // 数据库自增id
     private int id;
     // 第三方平台名称
