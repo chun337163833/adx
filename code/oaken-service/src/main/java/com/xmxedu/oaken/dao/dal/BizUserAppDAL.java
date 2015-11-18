@@ -18,6 +18,7 @@ import java.sql.SQLException;
 
 /**
  * 用户媒体映射关系表
+ * 其实，大部分的代码逻辑是一样的，可以采用Freemaker这样的组件进行代码生成的工作
  * @version 1.0.0
  */
 @Repository

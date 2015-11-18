@@ -18,6 +18,7 @@ import java.sql.SQLException;
 
 /**
  * 媒体APP功能分类，提供一个appId下对应的categoryId
+ * 其实，大部分的代码逻辑是一样的，可以采用Freemaker这样的组件进行代码生成的工作
  * @version 1.0.0
  */
 

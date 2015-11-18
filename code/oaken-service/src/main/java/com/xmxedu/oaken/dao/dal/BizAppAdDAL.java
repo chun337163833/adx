@@ -19,6 +19,7 @@ import java.sql.SQLException;
 
 /**
  * 封装上层，对上层逻辑提供底层的数据执行，抽象模块
+ * 其实，大部分的代码逻辑是一样的，可以采用Freemaker这样的组件进行代码生成的工作
  * @version 1.0.0
  */
 

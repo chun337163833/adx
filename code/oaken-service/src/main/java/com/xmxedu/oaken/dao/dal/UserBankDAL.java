@@ -1,7 +1,6 @@
 package com.xmxedu.oaken.dao.dal;
 
-import com.xmxedu.oaken.sql.BizUserApp;
-import com.xmxedu.oaken.sql.BizUserBank;
+import com.xmxedu.oaken.sql.UserBank;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,52 +17,52 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * 用户银行映射表
+ * 用户银行底层操作类
  * 其实，大部分的代码逻辑是一样的，可以采用Freemaker这样的组件进行代码生成的工作
  * @version 1.0.0
  */
 @Repository
-public class BizUserBankDAL {
-
-    private final static Logger logger = LoggerFactory.getLogger(BizUserBankDAL.class);
+public class UserBankDAL {
+    private final static Logger logger = LoggerFactory.getLogger(UserBankDAL.class);
 
     @Autowired
     @Qualifier("bNPJdbcTemplate")
     private NamedParameterJdbcTemplate nPJT;
 
-    public BizUserBank getBizUserBankByWhereClause(String whereName,String whereValue){
+    public UserBank getUserBankByWhereClause(String whereName,String whereValue){
         if (StringUtils.isBlank(whereName)){
-            logger.error("empty where name, suck it~");
+            logger.error("empty where name,suck it~");
             return null;
         }
 
         if (StringUtils.isBlank(whereValue)){
-            logger.error("empty where value, suck it~");
+            logger.error("empty where value,suck it~");
             return null;
         }
 
-        String whereClause = "SELECT" + BizUserBank.ALL_COLUMN_NAME + "FROM" + BizUserBank.TABLE_NAME + "where " + whereName + " = :" + whereName;
+
+        String whereClause = "SELECT" + UserBank.ALL_COLUMN_NAME + "FROM" + UserBank.TABLE_NAME + "where " + whereName + " = :" + whereName;
         SqlParameterSource source = new MapSqlParameterSource(whereName,whereValue);
 
         try {
-            final BizUserBank bizUserBank = this.nPJT.queryForObject(whereClause, source, new RowMapper<BizUserBank>() {
-                public BizUserBank mapRow(ResultSet resultSet, int i) throws SQLException {
-                    BizUserBank bub = new BizUserBank();
+            UserBank userBank = this.nPJT.queryForObject(whereClause, source, new RowMapper<UserBank>() {
+                public UserBank mapRow(ResultSet resultSet, int i) throws SQLException {
+                    UserBank ub = new UserBank();
 
-                    bub.setId(resultSet.getInt(BizUserBank.COLUMN_ID));
-                    bub.setUserId(resultSet.getInt(BizUserBank.COLUMN_USER_ID));
-                    bub.setPaymentWay(resultSet.getInt(BizUserBank.COLUMN_PAYMENT_WAY));
-                    bub.setPaymentId(resultSet.getInt(BizUserBank.COLUMN_PAYMENT_ID));
-                    bub.setStatus(resultSet.getInt(BizUserBank.COLUMN_STATUS));
+                    ub.setId(resultSet.getInt(UserBank.COLUMN_ID));
+                    ub.setName(resultSet.getString(UserBank.COLUMN_NAME));
+                    ub.setAccount(resultSet.getString(UserBank.COLUMN_ACCOUNT));
+                    ub.setAddress(resultSet.getString(UserBank.COLUMN_ADDRESS));
 
-                    return bub;
+                    return ub;
                 }
             });
-            return bizUserBank;
+            return userBank;
         }
         catch (DataAccessException e){
-
+            logger.error("cannot get specific result of query,its where clause is: {} and source is: {}",whereClause,source.toString());
         }
+
         return null;
     }
 }

@@ -5,6 +5,15 @@ package com.xmxedu.oaken.sql;
  * @version 1.0.0
  */
 public class UserBank {
+
+    public final static String TABLE_NAME = " `adx`.`tb_user_bank` ";
+    public final static String ALL_COLUMN_NAME = " `id`,`name`,`address`,`account` ";
+
+    public final static String COLUMN_ID = "id";
+    public final static String COLUMN_NAME = "name";
+    public final static String COLUMN_ADDRESS = "address";
+    public final static String COLUMN_ACCOUNT = "account";
+
     // 数据库自增id
     private int id;
     // 银行名称
