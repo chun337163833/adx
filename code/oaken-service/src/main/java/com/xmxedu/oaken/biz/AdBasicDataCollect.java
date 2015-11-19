@@ -1,5 +1,6 @@
 package com.xmxedu.oaken.biz;
 
+import com.xmxedu.oaken.dao.bll.AdInfoBLL;
 import com.xmxedu.oaken.sql.AdInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -18,7 +19,7 @@ public class AdBasicDataCollect {
   private final static Logger logger = LoggerFactory.getLogger(AdBasicDataCollect.class);
 
   @Autowired
-  private Adinfo
+  private AdInfoBLL adInfoBLL;
 
   public AdInfo getAdInfoByShowId(String showId){
       if (StringUtils.isBlank(showId)){
@@ -26,6 +27,7 @@ public class AdBasicDataCollect {
           return null;
       }
 
-
+        AdInfo adInfo = this.adInfoBLL.getAdInfoByShowId(showId);
+      return adInfo;
   }
 }
