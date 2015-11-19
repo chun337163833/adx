@@ -1,5 +1,7 @@
 package com.xmxedu.oaken.sql;
 
+import org.springframework.context.annotation.Bean;
+
 /**
  * 广告位形式，分横幅，全插屏，视频，语音等
  * @version 1.0.0
