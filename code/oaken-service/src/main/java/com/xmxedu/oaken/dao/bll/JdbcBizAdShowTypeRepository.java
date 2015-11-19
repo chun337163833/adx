@@ -17,6 +17,7 @@ import java.sql.SQLException;
 
 /**
  * 广告位展示类型映射表相关的DAO操作
+ *
  * @version 1.0.0
  */
 public class JdbcBizAdShowTypeRepository implements BizAdShowTypeRepository {
@@ -30,13 +31,13 @@ public class JdbcBizAdShowTypeRepository implements BizAdShowTypeRepository {
 
 
     public BizAdShowType getBizAdShowTypeById(int id) {
-        if (id < 0){
+        if (id < 0) {
             logger.error("invalid id for get biz ad showtype and its value: {}", id);
             return null;
         }
 
         String selectBizAdShowTypeById = "SELECT" + BizAdShowType.ALL_COLUMN_NAME + "FROM" + BizAdShowType.TABLE_NAME + "where id = :id";
-        SqlParameterSource parameterSource = new MapSqlParameterSource("id",id);
+        SqlParameterSource parameterSource = new MapSqlParameterSource("id", id);
 
         try {
             BizAdShowType bizAdShowType = this.nPJT.queryForObject(selectBizAdShowTypeById, parameterSource, new RowMapper<BizAdShowType>() {
@@ -53,8 +54,7 @@ public class JdbcBizAdShowTypeRepository implements BizAdShowTypeRepository {
             });
 
             return bizAdShowType;
-        }
-        catch (DataAccessException e){
+        } catch (DataAccessException e) {
             logger.error("can not get specific result of id with: " + id);
         }
 
@@ -63,13 +63,13 @@ public class JdbcBizAdShowTypeRepository implements BizAdShowTypeRepository {
 
     public BizAdShowType getBizAdShowTypeByAdId(int adId) {
 
-        if (adId < 0){
+        if (adId < 0) {
             logger.error("invalid adId for get biz ad showtype and its value: {}", adId);
             return null;
         }
 
         String selectBizAdShowTypeById = "SELECT" + BizAdShowType.ALL_COLUMN_NAME + "FROM" + BizAdShowType.TABLE_NAME + "where adid = :adid";
-        SqlParameterSource parameterSource = new MapSqlParameterSource("adid",adId);
+        SqlParameterSource parameterSource = new MapSqlParameterSource("adid", adId);
 
         try {
             BizAdShowType bizAdShowType = this.nPJT.queryForObject(selectBizAdShowTypeById, parameterSource, new RowMapper<BizAdShowType>() {
@@ -86,8 +86,7 @@ public class JdbcBizAdShowTypeRepository implements BizAdShowTypeRepository {
             });
 
             return bizAdShowType;
-        }
-        catch (DataAccessException e){
+        } catch (DataAccessException e) {
             logger.error("can not get specific result of adid with: " + adId);
         }
 
@@ -95,13 +94,13 @@ public class JdbcBizAdShowTypeRepository implements BizAdShowTypeRepository {
     }
 
     public BizAdShowType getBizAdShowTypeByShowTypeId(int showTypeId) {
-        if (showTypeId < 0){
+        if (showTypeId < 0) {
             logger.error("invalid adId for get biz ad showTypeId and its value: {}", showTypeId);
             return null;
         }
 
         String selectBizAdShowTypeById = "SELECT" + BizAdShowType.ALL_COLUMN_NAME + "FROM" + BizAdShowType.TABLE_NAME + "where showtypeid = :showtypeid";
-        SqlParameterSource parameterSource = new MapSqlParameterSource("showtypeid",showTypeId);
+        SqlParameterSource parameterSource = new MapSqlParameterSource("showtypeid", showTypeId);
 
         try {
             BizAdShowType bizAdShowType = this.nPJT.queryForObject(selectBizAdShowTypeById, parameterSource, new RowMapper<BizAdShowType>() {
@@ -118,8 +117,7 @@ public class JdbcBizAdShowTypeRepository implements BizAdShowTypeRepository {
             });
 
             return bizAdShowType;
-        }
-        catch (DataAccessException e){
+        } catch (DataAccessException e) {
             logger.error("can not get specific result of showtypeid with: " + showTypeId);
         }
 
