@@ -4,6 +4,7 @@ import com.xmxedu.oaken.sql.AdInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,7 +17,8 @@ import org.springframework.stereotype.Service;
 public class AdBasicDataCollect {
   private final static Logger logger = LoggerFactory.getLogger(AdBasicDataCollect.class);
 
-    
+  @Autowired
+  private Adinfo
 
   public AdInfo getAdInfoByShowId(String showId){
       if (StringUtils.isBlank(showId)){

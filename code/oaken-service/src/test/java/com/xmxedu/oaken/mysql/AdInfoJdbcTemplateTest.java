@@ -1,6 +1,6 @@
 package com.xmxedu.oaken.mysql;
 
-import com.xmxedu.oaken.dao.bll.JdbcAdInfoRepository;
+import com.xmxedu.oaken.dao.bll.AdInfoBLL;
 import com.xmxedu.oaken.sql.AdInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 public class AdInfoJdbcTemplateTest {
     @Autowired
-    private JdbcAdInfoRepository jdbcAdInfoRepository;
+    private AdInfoBLL jdbcAdInfoRepository;
 
     @Test
     public void GetAdInfoByShowIdTest(){
