@@ -3,6 +3,7 @@ package com.xmxedu.oaken.biz;
 import com.xmxedu.oaken.dao.bll.AdInfoBLL;
 import com.xmxedu.oaken.sql.AdInfo;
 import com.xmxedu.oaken.sql.AdType;
+import com.xmxedu.oaken.sql.AppInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,5 +41,9 @@ public class AdBasicDataCollect {
         }
 
         return null;
+    }
+
+    public AppInfo getAppInfoByAdId(int adId){
+        
     }
 }
