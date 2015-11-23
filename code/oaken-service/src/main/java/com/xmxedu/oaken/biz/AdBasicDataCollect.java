@@ -2,9 +2,11 @@ package com.xmxedu.oaken.biz;
 
 import com.xmxedu.oaken.dao.bll.AdInfoBLL;
 import com.xmxedu.oaken.dao.bll.AdTypeBLL;
+import com.xmxedu.oaken.dao.bll.BizAdShowTypeBLL;
 import com.xmxedu.oaken.sql.AdInfo;
 import com.xmxedu.oaken.sql.AdType;
 import com.xmxedu.oaken.sql.AppInfo;
+import com.xmxedu.oaken.sql.BizAdShowType;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +30,9 @@ public class AdBasicDataCollect {
     @Autowired
     private AdTypeBLL adTypeBLL;
 
+    @Autowired
+    private BizAdShowTypeBLL adShowTypeBLL;
+
     public AdInfo getAdInfoByShowId(String showId) {
         if (StringUtils.isBlank(showId)) {
             logger.error("empty showid from Ad Basic Data Collect");
@@ -44,9 +49,15 @@ public class AdBasicDataCollect {
             return null;
         }
 
-        AdType adType = this.adTypeBLL.getAdTypeById(adId);
+        BizAdShowType bizAdShowType = this.adShowTypeBLL.getBizAdShowTypeByAdId(adId);
 
-        return null;
+        if (null == bizAdShowType){
+            logger.warn("can not get bizAdShowType by adId of {}",adId);
+            return null;
+        }
+
+        AdType adType = this.adTypeBLL.getAdTypeById(bizAdShowType.getShowTypeId());
+        return adType;
     }
 
     public AppInfo getAppInfoByAdId(int adId){
