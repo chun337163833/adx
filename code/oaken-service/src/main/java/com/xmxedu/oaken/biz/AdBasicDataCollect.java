@@ -54,7 +54,7 @@ public class AdBasicDataCollect {
         BizAdShowType bizAdShowType = this.adShowTypeBLL.getBizAdShowTypeByAdId(adId);
 
         if (null == bizAdShowType){
-            logger.warn("can not get bizAdShowType by adId of {}",adId);
+            logger.warn("can not get bizAdShowType by adId of {}", adId);
             return null;
         }
 
@@ -76,5 +76,16 @@ public class AdBasicDataCollect {
 
         AppInfo appInfo = this.appInfoBLL.getAppInfoByAppId(bizAppAd.getAppId());
         return appInfo;
+    }
+
+    public AppInOtherPlatform getAppInOtherPlatformByAdId(int adId){
+        if (adId < 0){
+            logger.error("invalid id,its value: {}",adId);
+            return null;
+        }
+
+        
+
+        return null;
     }
 }
