@@ -56,7 +56,7 @@ public class AppOSDAL {
             return appOS;
         }
         catch (DataAccessException e){
-            logger.error("can not get the specific result of sql query clause: {} and mapParameter: {}", whereClause,source.toString());
+            logger.error("can not get the specific result of sql query clause: {} and mapParameter: {}", whereClause,namedParameters.toString());
         }
 
         return null;
