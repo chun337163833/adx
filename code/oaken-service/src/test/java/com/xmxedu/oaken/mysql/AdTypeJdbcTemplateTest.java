@@ -1,7 +1,7 @@
 package com.xmxedu.oaken.mysql;
 
 
-import com.xmxedu.oaken.dao.bll.JdbcAdTypeRepository;
+import com.xmxedu.oaken.dao.bll.AdTypeBLL;
 import com.xmxedu.oaken.sql.AdType;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 public class AdTypeJdbcTemplateTest {
     @Autowired
-    private JdbcAdTypeRepository jdbcAdTypeRepository;
+    private AdTypeBLL jdbcAdTypeRepository;
 
     @Test
     public void GetAdTypeByIdTest(){

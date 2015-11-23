@@ -24,7 +24,7 @@ import java.sql.SQLException;
 @Service
 public class JdbcUserInfoRepository implements UserInfoRepository {
 
-    private final static Logger logger = LoggerFactory.getLogger(JdbcAppInfoRepository.class);
+    private final static Logger logger = LoggerFactory.getLogger(AppInfoBLL.class);
 
     @Autowired
     @Qualifier("bNPJdbcTemplate")

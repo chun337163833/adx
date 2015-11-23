@@ -1,22 +1,12 @@
 package com.xmxedu.oaken.dao.bll;
 
-import com.xmxedu.oaken.dao.AdInfoRepository;
 import com.xmxedu.oaken.dao.dal.AdInfoDAL;
 import com.xmxedu.oaken.sql.AdInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Service;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 /**
  * 对数据库中的广告位提供相关的查询接口

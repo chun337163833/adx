@@ -1,6 +1,6 @@
 package com.xmxedu.oaken.mysql;
 
-import com.xmxedu.oaken.dao.bll.JdbcAppInfoRepository;
+import com.xmxedu.oaken.dao.bll.AppInfoBLL;
 import com.xmxedu.oaken.sql.AppInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class AppInfoJdbcTemplateTest {
 
     @Autowired
-    private JdbcAppInfoRepository jdbcAppInfoRepository;
+    private AppInfoBLL jdbcAppInfoRepository;
 
     @Test
     public void GetAppInfoByAppIdTest(){
