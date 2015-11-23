@@ -17,7 +17,7 @@ public class BizAppAd {
     //数据库自增id
     private int id;
     //媒体对应的id；
-    private int appId;
+    private String appId;
     //广告位对应的Id
     private int adId;
     //状态信息，是否被删除
@@ -31,11 +31,11 @@ public class BizAppAd {
         this.id = id;
     }
 
-    public int getAppId() {
+    public String getAppId() {
         return appId;
     }
 
-    public void setAppId(int appId) {
+    public void setAppId(String appId) {
         this.appId = appId;
     }
 
