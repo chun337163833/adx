@@ -1,12 +1,8 @@
 package com.xmxedu.oaken.biz;
 
-import com.xmxedu.oaken.dao.bll.AdInfoBLL;
-import com.xmxedu.oaken.dao.bll.AdTypeBLL;
-import com.xmxedu.oaken.dao.bll.BizAdShowTypeBLL;
-import com.xmxedu.oaken.sql.AdInfo;
-import com.xmxedu.oaken.sql.AdType;
-import com.xmxedu.oaken.sql.AppInfo;
-import com.xmxedu.oaken.sql.BizAdShowType;
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.Appinfo;
+import com.xmxedu.oaken.dao.bll.*;
+import com.xmxedu.oaken.sql.*;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,6 +28,12 @@ public class AdBasicDataCollect {
 
     @Autowired
     private BizAdShowTypeBLL adShowTypeBLL;
+
+    @Autowired
+    private AppInfoBLL appInfoBLL;
+
+    @Autowired
+    private BizAppAdBLL bizAppAdBLL;
 
     public AdInfo getAdInfoByShowId(String showId) {
         if (StringUtils.isBlank(showId)) {
@@ -61,6 +63,18 @@ public class AdBasicDataCollect {
     }
 
     public AppInfo getAppInfoByAdId(int adId){
-        return null;
+        if (adId < 0){
+            logger.error("invalid id,its value: {}",adId);
+            return null;
+        }
+
+        BizAppAd bizAppAd = this.bizAppAdBLL.getBizAppAdByAdId(adId);
+        if (null == bizAppAd){
+            logger.warn("can not get bizAppAdBLL by adId of {}",adId);
+            return null;
+        }
+
+        AppInfo appInfo = this.appInfoBLL.getAppInfoByAppId(bizAppAd.getAppId());
+        return appInfo;
     }
 }
