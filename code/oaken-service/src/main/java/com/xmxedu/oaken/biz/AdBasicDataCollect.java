@@ -35,6 +35,12 @@ public class AdBasicDataCollect {
     @Autowired
     private BizAppAdBLL bizAppAdBLL;
 
+    @Autowired
+    private BizAppRelationShipBLL bizAppRelationShipBLL;
+
+    @Autowired
+    private AppInOtherPlatformBLL appInOtherPlatformBLL;
+
     public AdInfo getAdInfoByShowId(String showId) {
         if (StringUtils.isBlank(showId)) {
             logger.error("empty showid from Ad Basic Data Collect");
@@ -84,8 +90,15 @@ public class AdBasicDataCollect {
             return null;
         }
 
-        
+        BizAppRelationShip bas = this.bizAppRelationShipBLL.getBizAppRelationShipByOurAd(adId);
+        if (null == bas){
+            logger.error("can not get biz app relation ship by adId of {}",adId);
+            return null;
+        }
 
-        return null;
+        int otherplatformId = bas.getThirdPlatformId();
+        AppInOtherPlatform aiop = this.appInOtherPlatformBLL.getAppInOtherPlatformById(otherplatformId);
+
+        return aiop;
     }
 }
