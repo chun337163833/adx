@@ -1,5 +1,7 @@
 package com.xmxedu.oaken.biz;
 
+import com.xmxedu.oaken.cache.LocalCache;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -8,4 +10,14 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class AdxListener {
+
+    @Autowired
+    private LocalCache localCache;
+
+    public void loadSQLIntoCacheAtFixedTime(long fixedTime){
+        if (fixedTime < 0)
+        {
+            return;
+        }
+    }
 }

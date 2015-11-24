@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import com.google.common.base.Strings;
 import com.google.common.collect.Maps;
 import com.xmxedu.oaken.model.AdBasicData;
+import org.springframework.stereotype.Service;
 
 /**
  * 加载数据到本地缓存，读写的时候要注意同步锁的问题，采用原子引用的方式进行加载
@@ -16,6 +17,7 @@ import com.xmxedu.oaken.model.AdBasicData;
  * @author xmzheng
  * @version 1.0.1
  */
+@Service
 public class LocalCache implements Cache {
 
   private final static Logger logger = LoggerFactory.getLogger(LocalCache.class);
