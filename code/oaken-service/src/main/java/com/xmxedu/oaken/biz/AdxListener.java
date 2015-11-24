@@ -1,6 +1,7 @@
 package com.xmxedu.oaken.biz;
 
 import com.xmxedu.oaken.cache.LocalCache;
+import com.xmxedu.oaken.sql.AdInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +15,9 @@ public class AdxListener {
     @Autowired
     private LocalCache localCache;
 
-    public void loadSQLIntoCacheAtFixedTime(long fixedTime){
-        if (fixedTime < 0)
-        {
-            return;
-        }
+    public void loadSQLIntoCacheAtFixedTime(){
+
+        // get all adid in mysql
+        AdInfo
     }
 }

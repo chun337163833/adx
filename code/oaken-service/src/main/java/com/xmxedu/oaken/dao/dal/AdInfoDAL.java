@@ -15,6 +15,8 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * 广告位相关信息DAO操作函数
@@ -61,6 +63,31 @@ public class AdInfoDAL {
         catch (DataAccessException e){
             logger.error("can not get the specific result of sql query clause: {} and mapParameter: {}", whereClause,source.toString());
         }
+        return null;
+    }
+
+    public LinkedList<AdInfo> getAllAdInfoByWhereClause(String whereName,String whereValue){
+        if (StringUtils.isBlank(whereName)){
+            logger.error("whereName clause is empty, return a shit~");
+            return null;
+        }
+
+        if (StringUtils.isBlank(whereValue)){
+            logger.error("whereValue clause is empty, return a shit for u~");
+            return null;
+        }
+
+        String whereClause = "SELECT" + AdInfo.ALL_COLUMN_NAME + "FROM" + AdInfo.TABLE_NAME + "where " + whereName + " = :" + whereName;
+        SqlParameterSource source = new MapSqlParameterSource(whereName,whereValue);
+
+        try {
+            List<AdInfo> result = this.nPJT.queryForList(whereClause,source);
+            return result;
+        }
+        catch (DataAccessException e){
+
+        }
+
         return null;
     }
 }
