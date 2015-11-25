@@ -1,9 +1,13 @@
 package com.xmxedu.oaken.biz;
 
 import com.xmxedu.oaken.cache.LocalCache;
+import com.xmxedu.oaken.dao.bll.AdInfoBLL;
+import com.xmxedu.oaken.model.AdBasicData;
 import com.xmxedu.oaken.sql.AdInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 定时任务，定时的将数据库中的数据加载到Cache中
@@ -15,9 +19,16 @@ public class AdxListener {
     @Autowired
     private LocalCache localCache;
 
+    @Autowired
+    private AdInfoBLL adInfoBLL;
+
     public void loadSQLIntoCacheAtFixedTime(){
 
         // get all adid in mysql
-        AdInfo
+        List<AdInfo> allAdInfo = null;
+        for (AdInfo ai : allAdInfo){
+            AdBasicData abd = localCache.getAdDataByAdid(ai.getShowId());
+
+        }
     }
 }

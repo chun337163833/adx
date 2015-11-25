@@ -41,6 +41,9 @@ public class AdBasicDataCollect {
     @Autowired
     private AppInOtherPlatformBLL appInOtherPlatformBLL;
 
+
+    public 
+
     public AdInfo getAdInfoByShowId(String showId) {
         if (StringUtils.isBlank(showId)) {
             logger.error("empty showid from Ad Basic Data Collect");
