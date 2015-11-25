@@ -2,6 +2,7 @@ package com.xmxedu.oaken.biz;
 
 import com.sun.xml.internal.bind.v2.schemagen.xmlschema.Appinfo;
 import com.xmxedu.oaken.dao.bll.*;
+import com.xmxedu.oaken.model.AdBasicData;
 import com.xmxedu.oaken.sql.*;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -42,7 +43,10 @@ public class AdBasicDataCollect {
     private AppInOtherPlatformBLL appInOtherPlatformBLL;
 
 
-    public 
+    public AdBasicData getAdBasicDataByShowId(String showId){
+        
+    }
+
 
     public AdInfo getAdInfoByShowId(String showId) {
         if (StringUtils.isBlank(showId)) {
