@@ -44,7 +44,13 @@ public class AdBasicDataCollect {
 
 
     public AdBasicData getAdBasicDataByShowId(String showId){
-        
+        if (StringUtils.isBlank(showId)) {
+            logger.error("empty showid from Ad Basic Data Collect");
+            return null;
+        }
+
+        return null;
+
     }
 
 
