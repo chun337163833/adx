@@ -49,7 +49,6 @@ public class AdBasicDataCollect {
             return null;
         }
 
-        getAdInfoByShowId(showId);
 
         return null;
 
