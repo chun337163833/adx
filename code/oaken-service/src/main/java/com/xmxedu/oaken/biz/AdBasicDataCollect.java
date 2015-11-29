@@ -49,7 +49,7 @@ public class AdBasicDataCollect {
             return null;
         }
 
-     
+        
         return null;
 
     }
