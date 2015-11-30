@@ -8,12 +8,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * 对数据库中的广告位提供相关的查询接口
  * @version 1.0.0
  */
 @Service
-public class AdInfoBLL implements AdInfoRepository {
+public class AdInfoBLL{
 
     private final static Logger logger = LoggerFactory.getLogger(AdInfoBLL.class);
 
@@ -39,5 +41,9 @@ public class AdInfoBLL implements AdInfoRepository {
 
         AdInfo ai = this.adInfoDAL.getAdInfoByWhereClause(AdInfo.COLUMN_NAME,name);
         return ai;
+    }
+
+    public List<AdInfo> getAllAdInfo(){
+        return this.adInfoDAL.getAllAdInfoByWhereClause();
     }
 }

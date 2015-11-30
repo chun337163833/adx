@@ -23,7 +23,7 @@ public class LocalCache implements Cache {
   private final static Logger logger = LoggerFactory.getLogger(LocalCache.class);
   private final static String name = "local cache";
 
-  private HashMap<String, AdBasicData> data = Maps.newHashMap();
+  private volatile HashMap<String, AdBasicData> data = Maps.newHashMap();
 
 
   private AtomicReference<HashMap<String, AdBasicData>> atomicReference =

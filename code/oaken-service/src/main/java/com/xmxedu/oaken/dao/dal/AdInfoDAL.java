@@ -1,5 +1,6 @@
 package com.xmxedu.oaken.dao.dal;
 
+import com.google.common.collect.Lists;
 import com.xmxedu.oaken.sql.AdInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -15,8 +16,10 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 广告位相关信息DAO操作函数
@@ -66,22 +69,24 @@ public class AdInfoDAL {
         return null;
     }
 
-    public LinkedList<AdInfo> getAllAdInfoByWhereClause(String whereName,String whereValue){
-        if (StringUtils.isBlank(whereName)){
-            logger.error("whereName clause is empty, return a shit~");
-            return null;
-        }
+    public List<AdInfo> getAllAdInfoByWhereClause(){
 
-        if (StringUtils.isBlank(whereValue)){
-            logger.error("whereValue clause is empty, return a shit for u~");
-            return null;
-        }
 
-        String whereClause = "SELECT" + AdInfo.ALL_COLUMN_NAME + "FROM" + AdInfo.TABLE_NAME + "where " + whereName + " = :" + whereName;
-        SqlParameterSource source = new MapSqlParameterSource(whereName,whereValue);
+        String whereClause = "SELECT" + AdInfo.ALL_COLUMN_NAME + "FROM" + AdInfo.TABLE_NAME + "where id > :id";
+        SqlParameterSource source = new MapSqlParameterSource("id","0");
 
         try {
-            List<AdInfo> result = this.nPJT.queryForList(whereClause,source);
+            List<Map<String,Object>> queryResult = this.nPJT.queryForList(whereClause,source);
+            List<AdInfo> result = Lists.newArrayList();
+
+            for (Map<String,Object> map : queryResult){
+                AdInfo ai = new AdInfo();
+
+                ai.setId((Integer)map.get(AdInfo.COLUMN_ID));
+                ai.setName((String) map.get(AdInfo.COLUMN_NAME));
+                ai.setShowId((String)map.get(AdInfo.COLUMN_SHOWID));
+            }
+
             return result;
         }
         catch (DataAccessException e){
