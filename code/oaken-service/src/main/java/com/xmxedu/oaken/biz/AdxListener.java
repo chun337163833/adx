@@ -22,13 +22,21 @@ public class AdxListener {
     @Autowired
     private AdInfoBLL adInfoBLL;
 
+    @Autowired
+    private AdBasicDataCollect adBasicDataCollect;
+
     public void loadSQLIntoCacheAtFixedTime(){
 
         // get all adid in mysql
-        List<AdInfo> allAdInfo = null;
+        List<AdInfo> allAdInfo = this.adInfoBLL.getAllAdInfo();
+        if (allAdInfo.isEmpty()){
+            // logger warn it
+            return;
+        }
         for (AdInfo ai : allAdInfo){
-            AdBasicData abd = localCache.getAdDataByAdid(ai.getShowId());
-
+            String showId = ai.getShowId();
+            AdBasicData abd = this.adBasicDataCollect.getAdBasicDataByShowId(showId);
+            localCache.putAdDataByAdid(showId,abd);
         }
     }
 }
