@@ -29,6 +29,10 @@ public class LocalCache implements Cache {
   private AtomicReference<HashMap<String, AdBasicData>> atomicReference =
       new AtomicReference<HashMap<String, AdBasicData>>(null);
 
+  public LocalCache(){
+    initCache();
+  }
+
   public void setAdBasicData(HashMap<String, AdBasicData> data) {
     atomicReference.set(data);
     this.data = atomicReference.getAndSet(data);
