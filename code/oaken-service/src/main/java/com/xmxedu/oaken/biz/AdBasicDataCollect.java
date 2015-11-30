@@ -49,8 +49,37 @@ public class AdBasicDataCollect {
             return null;
         }
 
-        
-        return null;
+
+        AdInfo adInfo = this.getAdInfoByShowId(showId);
+        if (null == adInfo){
+            return null;
+        }
+
+        // 广告位内部的id
+        AdType adType = this.getAdTypeByAdId(adInfo.getId());
+        if (null == adType){
+            return null;
+        }
+
+        // 广告位内部id
+        AppInfo appInfo = this.getAppInfoByAdId(adInfo.getId());
+        if (null == appInfo){
+            return null;
+        }
+
+        // 广告位内部id
+        AppInOtherPlatform appInOtherPlatform = this.getAppInOtherPlatformByAdId(adInfo.getId());
+        if (null == appInOtherPlatform){
+            return null;
+        }
+
+        AdBasicData adBasicData = new AdBasicData();
+        adBasicData.setAdInfo(adInfo);
+        adBasicData.setAdType(adType);
+        adBasicData.setAop(appInOtherPlatform);
+        adBasicData.setAppInfo(appInfo);
+
+        return adBasicData;
 
     }
 
