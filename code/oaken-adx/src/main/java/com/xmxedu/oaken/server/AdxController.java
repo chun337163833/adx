@@ -8,6 +8,6 @@ public class AdxController {
 
     @RequestMapping
     public void getAd(){
-            
+        
     }
 }
