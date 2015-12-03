@@ -1,7 +1,11 @@
 package com.xmxedu.oaken.biz;
 
+import org.springframework.stereotype.Service;
+
 /**
- * Created by xmzheng on 15/12/3.
+ * 媒体请求验证，验证请求的合法性
+ * @version 1.0.0
  */
+@Service
 public class RequestValidator {
 }
