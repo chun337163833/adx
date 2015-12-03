@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service;
  * @version 1.0.0
  */
 @Service
-public class PreProcess {
+public class PreProcesser {
 
-    
 
 }
